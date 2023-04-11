@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$primary_color: #1f1f1f;
+$secondary_color: red;
+$accent_color: #f1f1f1;
+
+
+[data-theme="dark"] {
+  /* your styles for dark theme */
+
+  body {
+    background-color: $primary_color;
+    color: $accent_color;
+  }
+}
+
+[data-theme="light"] {
+  /* your styles for light theme */
+  
+  body {
+    background-color: $accent_color;
+    color: $primary_color;
+  }
+}
