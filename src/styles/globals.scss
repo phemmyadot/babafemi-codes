@@ -4,8 +4,24 @@
 
 $primary_color: #1f1f1f;
 $secondary_color: red;
-$accent_color: #f1f1f1;
+$accent_color: #ffffff;
 
+.theme-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
 
 [data-theme="dark"] {
   /* your styles for dark theme */
@@ -13,14 +29,31 @@ $accent_color: #f1f1f1;
   body {
     background-color: $primary_color;
     color: $accent_color;
+
+    .theme-fab {
+      background-color: $accent_color;
+      color: $primary_color;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      &:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+      }
+    }
   }
 }
 
 [data-theme="light"] {
   /* your styles for light theme */
-  
+
   body {
     background-color: $accent_color;
     color: $primary_color;
+    .theme-fab {
+      background-color: $primary_color;
+      color: $accent_color;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      &:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+      }
+    }
   }
 }
