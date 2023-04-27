@@ -36,7 +36,7 @@ function App({ Component, pageProps }: AppProps) {
         dispatch(setTheme(ThemeMode.LIGHT));
       }
     }
-  }, []);
+  }, [dispatch]);
 
   // Save the theme to localStorage
   useEffect(() => {
@@ -51,7 +51,7 @@ function App({ Component, pageProps }: AppProps) {
     }
   }, [theme]);
 
-  const toggleTheme = (theme: ThemeMode) => dispatch(setTheme(ThemeMode.DARK));
+  const toggleTheme = (theme: ThemeMode) => dispatch(setTheme(theme));
 
   return (
     <>

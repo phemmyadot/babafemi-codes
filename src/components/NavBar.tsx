@@ -1,8 +1,8 @@
 import React from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { ThemeMode } from "@/enums/Theme.enum";
-import Image from "next/image";
 import Link from "next/link";
+import Logo from "./svgs/Logo";
 
 interface NavigationBarProps {
   themeMode: ThemeMode;
@@ -19,7 +19,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 
   return (
     <nav
-      className={`fixed w-full z-10 ${
+      className={`fixed w-full z-10 shadow ${
         themeMode === ThemeMode.LIGHT ? "bg-white" : "bg-[#1f1f1f]"
       } ${
         isOpen ? "h-full" : "h-20"
@@ -28,19 +28,11 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link passHref href="/">
-              {/* <Image
-                className="h-8 w-auto"
-                src={
-                  themeMode === ThemeMode.LIGHT
-                    ? "/logo-black.svg"
-                    : "/logo-white.svg"
-                }
-                alt="Logo"
-              /> */}
+              <Logo themeMode={themeMode}/>
             </Link>
           </div>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:block my-auto">
+            <div className="ml-10 flex items-center space-x-4">
               <Link
                 passHref href="/"
                 className={`${
@@ -88,7 +80,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
               </Link>
             </div>
           </div>
-          <div className="-mr-2 flex md:hidden">
+          <div className="-mr-2 flex md:hidden items-center">
             <button
               type="button"
               className={`inline-flex items-center justify-center p-2 rounded-md ${
@@ -112,7 +104,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
       <div
         className={`${isOpen ? "block" : "hidden"} md:hidden`}
         id="mobile-menu">
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 grid">
           <Link
             passHref href="/"
             className={`${
