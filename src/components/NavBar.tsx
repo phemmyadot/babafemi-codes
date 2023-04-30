@@ -1,40 +1,35 @@
 import React from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { ThemeMode } from "@/enums/Theme.enum";
+import { ThemeMode } from "@/core/enums/Theme.enum";
 import Link from "next/link";
 import Logo from "./svgs/Logo";
+import { selectTheme } from "@/store/themeSlice";
+import { useSelector } from "react-redux";
 
-interface NavigationBarProps {
-  themeMode: ThemeMode;
-}
+interface NavigationBarProps {}
 
-const NavigationBar: React.FC<NavigationBarProps> = ({
-  themeMode,
-}) => {
+const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const themeMode = useSelector(selectTheme);
 
   const handleToggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <nav
-      className={`fixed w-full z-10 shadow ${
-        themeMode === ThemeMode.LIGHT ? "bg-white" : "bg-[#1f1f1f]"
-      } ${
-        isOpen ? "h-full" : "h-20"
-      } transition-all duration-500 ease-in-out`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav className="fixed w-full z-10 shadow h-max transition-all duration-500 ease-in-out">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link passHref href="/">
-              <Logo themeMode={themeMode}/>
+              <Logo themeMode={themeMode} />
             </Link>
           </div>
           <div className="hidden md:block my-auto">
             <div className="ml-10 flex items-center space-x-4">
               <Link
-                passHref href="/"
+                passHref
+                href="/"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
@@ -43,7 +38,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 Home
               </Link>
               <Link
-                passHref href="/about"
+                passHref
+                href="/about"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
@@ -52,7 +48,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 About
               </Link>
               <Link
-                passHref href="/tech-stack"
+                passHref
+                href="/tech-stack"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
@@ -61,7 +58,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 Tech Stack
               </Link>
               <Link
-                passHref href="/projects"
+                passHref
+                href="/projects"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
@@ -70,7 +68,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 Projects
               </Link>
               <Link
-                passHref href="/contact"
+                passHref
+                href="/contact"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
@@ -106,7 +105,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
         id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 grid">
           <Link
-            passHref href="/"
+            passHref
+            href="#header"
             className={`${
               themeMode === ThemeMode.LIGHT
                 ? "text-black"
@@ -115,7 +115,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             Home
           </Link>
           <Link
-            passHref href="/about"
+            passHref
+            href="/about"
             className={`${
               themeMode === ThemeMode.LIGHT
                 ? "text-black"
@@ -124,7 +125,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             About
           </Link>
           <Link
-            passHref href="/tech-stack"
+            passHref
+            href="/tech-stack"
             className={`${
               themeMode === ThemeMode.LIGHT
                 ? "text-black"
@@ -133,7 +135,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             Tech Stack
           </Link>
           <Link
-            passHref href="/projects"
+            passHref
+            href="/projects"
             className={`${
               themeMode === ThemeMode.LIGHT
                 ? "text-black"
@@ -142,7 +145,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
             Projects
           </Link>
           <Link
-            passHref href="/contact"
+            passHref
+            href="/contact"
             className={`${
               themeMode === ThemeMode.LIGHT
                 ? "text-black"

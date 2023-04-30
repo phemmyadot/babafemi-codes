@@ -1,4 +1,4 @@
-import { ThemeMode } from "@/enums/Theme.enum";
+import { ThemeMode } from "@/core/enums/Theme.enum";
 
 interface LogoProps {
   themeMode: ThemeMode;

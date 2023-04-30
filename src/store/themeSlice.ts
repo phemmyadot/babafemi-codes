@@ -1,4 +1,4 @@
-import { ThemeMode } from "@/enums/Theme.enum";
+import { ThemeMode } from "@/core/enums/Theme.enum";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from ".";
 import { ThemeState } from "./types";

@@ -1,21 +1,22 @@
 import "@/styles/globals.scss";
-import { ThemeState } from "@/store/types";
 import store, { persistor } from "@/store/index";
 import { useDispatch, useSelector } from "react-redux";
 import { Provider } from "react-redux";
 import NavigationBar from "@/components/NavBar";
 import ThemeToggle from "@/components/ThemeToggle";
-import { ThemeMode } from "@/enums/Theme.enum";
-// import { setTheme } from "@/store/themeSlice";
+import { ThemeMode } from "@/core/enums/Theme.enum";
 import { useEffect } from "react";
 import { selectTheme, setTheme } from "@/store/themeSlice";
 import { PersistGate } from "redux-persist/integration/react";
+import { Inter } from 'next/font/google'
 
 // Define the AppProps interface
 interface AppProps {
   Component: React.ComponentType;
   pageProps: any;
 }
+
+const inter = Inter({ subsets: ['latin'] })
 
 function App({ Component, pageProps }: AppProps) {
   const theme = useSelector(selectTheme);
@@ -55,8 +56,10 @@ function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <NavigationBar themeMode={theme} />
-      <Component {...pageProps} />
+      <NavigationBar />
+      <div className={`${inter.className} font-sans pt-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}>
+        <Component {...pageProps} />
+      </div>
 
       <ThemeToggle
         themeMode={theme}
@@ -69,7 +72,7 @@ export default function Layout({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <App Component={Component} pageProps={pageProps} />
-        </PersistGate>
+      </PersistGate>
     </Provider>
   );
 }

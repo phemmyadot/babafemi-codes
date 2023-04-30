@@ -1,5 +1,5 @@
-import { ThemeMode } from "@/enums/Theme.enum";
-import { FaMoon, FaSun, FaTwitter } from "react-icons/fa";
+import { ThemeMode } from "@/core/enums/Theme.enum";
+import { TbBulbOff,TbBulb } from "react-icons/tb";
 
 interface ThemeToggleProps {
   themeMode: ThemeMode;
@@ -21,9 +21,9 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
   return (
     <button onClick={handleClick} className="theme-fab">
       {themeMode == ThemeMode.LIGHT ? (
-        <FaMoon color="#ffffff" size={18}/>
+        <TbBulbOff color="#ffffff" size={22}/>
       ) : (
-        <FaSun color="#1f1f1f"  size={18}/>
+        <TbBulb color="#1f1f1f"  size={24}/>
       )}
     </button>
   );

@@ -2,16 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-$primary_color: #1f1f1f;
+$primary_color: #091a28;
 $secondary_color: red;
 $accent_color: #ffffff;
+
+html {
+  scroll-behavior: smooth;
+}
 
 .theme-fab {
   position: fixed;
   bottom: 24px;
   right: 24px;
   border-radius: 50%;
-  padding: .75rem;
+  padding: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,6 +42,9 @@ $accent_color: #ffffff;
       }
     }
   }
+  nav {
+    background-color: $primary_color;
+  }
 }
 
 [data-theme="light"] {
@@ -55,4 +62,17 @@ $accent_color: #ffffff;
       }
     }
   }
+  nav {
+    background-color: $accent_color;
+  }
+}
+
+.slide-in-section {
+  position: relative;
+  left: -100%;
+  transition: all 0.5s ease;
+}
+
+.slide-in-section.active {
+  left: 0;
 }

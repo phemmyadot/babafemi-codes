@@ -1,4 +1,4 @@
-import { ThemeMode } from "@/enums/Theme.enum";
+import { ThemeMode } from "@/core/enums/Theme.enum";
 
 export interface ThemeState {
   theme: ThemeMode;
