@@ -12,7 +12,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
     axios.get<ProjectDTO[]>("/api/projects").then((response) => {
       const _projects: Project[] = response.data.map((i) => {
         return {
-          id: i._id,
+          id: i._id?.toString() ?? "",
           title: i.title,
           description: i.description,
           repository: i.repository,
@@ -49,22 +49,25 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
               <h2 className="text-lg font-medium text-gray-800 capitalize">
                 {p.title}
               </h2>
-              <p className="text-gray-600 mt-2 text-sm">{p.description}</p>
-            <div className="mt-4 flex text-right justify-end items-center">
-            <Image
-              priority={true}
-              width={50}
-              height={50}
-              className="h-4 w-4 object-cover mr-1"
-              src="./assets/github.svg"
-              alt={p.title}
-            />  <a
-              target="blank"
-                href={p.repository}
-                className="font-medium text-xs">
-                View Code
-              </a>
-            </div>
+              <p className="text-gray-600 mt-2 text-sm">
+                {p.description}
+              </p>
+              <div className="mt-4 flex text-right justify-end items-center">
+                <Image
+                  priority={true}
+                  width={50}
+                  height={50}
+                  className="h-4 w-4 object-cover mr-1"
+                  src="./assets/github.svg"
+                  alt={p.title}
+                />{" "}
+                <a
+                  target="blank"
+                  href={p.repository}
+                  className="font-medium text-xs">
+                  View Code
+                </a>
+              </div>
             </div>
           </div>
         ))}

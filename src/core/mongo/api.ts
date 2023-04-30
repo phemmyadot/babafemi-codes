@@ -1,9 +1,10 @@
-import { Collection, Db } from "mongodb";
+import { Collection, Db, ObjectId } from "mongodb";
 import clientPromise from ".";
+import { Project, ProjectDTO } from "../models/project";
 
 let client;
 let db: Db;
-let projects: Collection<Document>;
+let projects: Collection<ProjectDTO>;
 
 const init = async () => {
   if (db) return;
@@ -27,8 +28,20 @@ export const getProjects = async () => {
       .find()
       .map((project) => ({ ...project, _id: project._id.toString() }))
       .toArray();
-    return {projects: result};
+    return { projects: result };
   } catch (error) {
+    return {
+      error: "Failed to fetch projects",
+    };
+  }
+};
+
+export const addProject = async (project: ProjectDTO) => {
+  try {
+    const result = await projects.insertOne(project);
+    return { projects: result };
+  } catch (error) {
+    console.log(error)
     return {
       error: "Failed to fetch projects",
     };

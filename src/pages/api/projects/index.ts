@@ -1,5 +1,6 @@
 import { ResponseFuncs } from "@/core/enums/ResponseFunctions";
-import { getProjects } from "@/core/mongo/api";
+import { Project, ProjectDTO } from "@/core/models/project";
+import { addProject, getProjects } from "@/core/mongo/api";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -17,6 +18,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       try {
         const { projects } = await getProjects();
         res.status(200).json(projects);
+      } catch (error: any) {
+        catcher(error);
+      }
+    },
+    POST: async (req: NextApiRequest, res: NextApiResponse) => {
+      try {
+        const project = req.body as ProjectDTO;
+        const { projects } = await addProject(project);
+        res.status(201).json(projects);
       } catch (error: any) {
         catcher(error);
       }

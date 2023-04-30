@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 
 export interface Project {
   id: string;
@@ -5,8 +6,8 @@ export interface Project {
   description: string;
   repository: string;
 }
-export interface ProjectDTO extends Document {
-  _id: string;
+export interface ProjectDTO {
+  _id?: ObjectId;
   title: string;
   description: string;
   repository: string;
