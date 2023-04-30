@@ -49,6 +49,7 @@ function App({ Component, pageProps }: AppProps) {
 
   // Apply the current theme to the HTML document
   useEffect(() => {
+    console.log('here')
     const html = document.querySelector("html");
     if (html) {
       html.dataset.theme = theme;

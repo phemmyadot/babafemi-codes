@@ -3,14 +3,14 @@ import clientPromise from ".";
 
 let client;
 let db: Db;
-let intros: Collection<Document>;
+let projects: Collection<Document>;
 
 const init = async () => {
   if (db) return;
   try {
     client = await clientPromise;
     db = await client.db(process.env.DB_NAME);
-    intros = await db.collection("intros");
+    projects = await db.collection("projects");
   } catch (err) {
     throw new Error("Failed to establish connect to db");
   }
@@ -20,17 +20,17 @@ const init = async () => {
   await init();
 })();
 
-export const getIntros = async () => {
+export const getProjects = async () => {
   try {
-    if (!intros) await init();
-    const result = await intros
+    if (!projects) await init();
+    const result = await projects
       .find()
-      .map((intro) => ({ ...intro, _id: intro._id.toString() }))
+      .map((project) => ({ ...project, _id: project._id.toString() }))
       .toArray();
-    return {intros: result};
+    return {projects: result};
   } catch (error) {
     return {
-      error: "Failed to fetch intros",
+      error: "Failed to fetch projects",
     };
   }
 };

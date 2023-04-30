@@ -1,9 +1,10 @@
 import TechStack from "@/components/TechStack";
-import Header from "@/components/header";
+import Header from "@/components/Header";
 import { selectTheme } from "@/store/themeSlice";
 import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import Projects from "@/components/Projects";
 
 interface AppProps {
   Component: React.ComponentType;
@@ -22,8 +23,7 @@ export default function Home() {
           entry.target.classList.remove("active");
         }
       });
-    },{
-      // threshold: 0.05
+    },{threshold:0.01
     });
 
     const elements = document.querySelectorAll(".slide-in-section");
@@ -37,6 +37,7 @@ export default function Home() {
     <main>
       <Header />
       <TechStack />
+      <Projects />
     </main>
   );
 }

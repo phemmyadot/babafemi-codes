@@ -37,7 +37,7 @@ const TechStack: React.FC<TechStackProps> = ({}) => {
     "tailwind",
   ];
   return (
-    <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 py-[105px] ">
+    <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 pb-[105px] ">
       <h1 className="m-auto text-center text-2xl mb-4 font-medium">
         My Tech Stack
       </h1>
@@ -45,9 +45,17 @@ const TechStack: React.FC<TechStackProps> = ({}) => {
         Technologies I’ve been working with recently
       </p>
       <div className="flex flex-wrap">
-      {
-        skills.map((s,i) => <Image key={i} width={60} height={60} src={`./assets/${s}.svg`} alt={s}  className="m-4 h-[50px] md:h-[60px] w-[50px] md:w-[60px]"/>)
-      }
+        {skills.map((s, i) => (
+          <Image
+            priority={true}
+            key={i}
+            width={60}
+            height={60}
+            src={`./assets/${s}.svg`}
+            alt={s}
+            className="m-4 h-[50px] md:h-[60px] w-[50px] md:w-[60px]"
+          />
+        ))}
       </div>
     </div>
   );
