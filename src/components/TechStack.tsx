@@ -17,12 +17,17 @@ const TechStack: React.FC<TechStackProps> = ({}) => {
     "ionic",
     "nodejs",
     "express-js",
+    "aws",
+    "aws-iam",
+    "aws-rds",
+    "lambda",
+    "dynamodb",
+    "firebase",
     "csharp",
     "xamarin",
     "dotnet",
     "graphql",
     "mongodb",
-    "dynamodb",
     "firestore",
     "html-5",
     "css3",
@@ -30,8 +35,6 @@ const TechStack: React.FC<TechStackProps> = ({}) => {
     "material-ui",
     "bulma",
     "tailwind",
-    "aws",
-    "firebase",
   ];
   return (
     <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 py-[105px] ">
