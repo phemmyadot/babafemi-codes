@@ -8,7 +8,7 @@ import { ThemeMode } from "@/core/enums/Theme.enum";
 import { useEffect } from "react";
 import { selectTheme, setTheme } from "@/store/themeSlice";
 import { PersistGate } from "redux-persist/integration/react";
-import { Inter } from 'next/font/google'
+import { Poppins } from "next/font/google";
 
 // Define the AppProps interface
 interface AppProps {
@@ -16,7 +16,10 @@ interface AppProps {
   pageProps: any;
 }
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+});
 
 function App({ Component, pageProps }: AppProps) {
   const theme = useSelector(selectTheme);
@@ -57,7 +60,8 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <NavigationBar />
-      <div className={`${inter.className} font-sans pt-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}>
+      <div
+        className={`${poppins.className} pt-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}>
         <Component {...pageProps} />
       </div>
 
@@ -67,6 +71,7 @@ function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
 export default function Layout({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>

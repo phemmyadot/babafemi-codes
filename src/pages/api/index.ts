@@ -13,8 +13,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const handleCase: ResponseFuncs = {
     // RESPONSE FOR GET REQUESTS
     GET: async (req: NextApiRequest, res: NextApiResponse) => {
-      const { intros } = await getIntros() // connect to database
-      res.json(intros)
+      
+      res.status(200).json({})
     },
     
   }

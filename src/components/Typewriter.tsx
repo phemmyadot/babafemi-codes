@@ -10,7 +10,6 @@ interface TypewriterProps {}
 
 const itim = Itim({ weight: ["400"], subsets: ["latin"] });
 const Typewriter: React.FC<TypewriterProps> = () => {
-  const [texts, setTexts] = useState<string[]>([]);
   const [displayText, setDisplayText] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isTyping, setIsTyping] = useState<boolean>(true);
@@ -18,15 +17,14 @@ const Typewriter: React.FC<TypewriterProps> = () => {
   const themeMode = useSelector(selectTheme);
 
   useEffect(() => {
-    axios.get<IntroDTO[]>("/api").then((intro) => {
-      const _texts: string[] = intro.data.map((i) => i.value);
-      setTexts(_texts);
-    });
-  }, []);
-
-  useEffect(() => {
     if (!isTyping) return;
-
+    const texts = [
+      "I AM BABAFEMI",
+      "FULL STACK SOFTWARE DEVELOPER",
+      "BUILDING DIGITAL SOLUTIONS",
+      "TRANSFORMING IDEAS INTO REALITY",
+      "INNOVATING WITH CODE AND DESIGN",
+    ];
     const currentString =
       texts.length == 0 ? "" : texts[currentIndex];
     const isDisplayed = displayText === currentString;
@@ -47,7 +45,7 @@ const Typewriter: React.FC<TypewriterProps> = () => {
 
       return () => clearTimeout(timeoutId);
     }
-  }, [displayText, currentIndex, isTyping, texts]);
+  }, [displayText, currentIndex, isTyping]);
   return (
     <span
       className={`${
