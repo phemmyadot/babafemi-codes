@@ -23,7 +23,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
   }, []);
 
   return (
-    <div id="projects" className=" min-h-[90vh] flex">
+    <div id="projects" className=" min-h-[90vh] flex pb-20 sm:pb-0">
       <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 m-auto">
       <h1 className="m-auto text-center text-2xl mb-4 font-medium">
         My Projects
