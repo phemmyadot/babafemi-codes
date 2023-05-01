@@ -29,7 +29,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
             <div className="ml-10 flex items-center space-x-4">
               <Link
                 passHref
-                href="/"
+                href="#header"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
@@ -62,11 +62,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
           <div className="-mr-2 flex md:hidden items-center">
             <button
               type="button"
-              className={`inline-flex items-center justify-center p-2 rounded-md ${
-                themeMode === ThemeMode.LIGHT
-                  ? "text-black bg-white"
-                  : "text-white bg-black"
-              } hover:text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition-all duration-500 ease-in-out`}
+              className={`inline-flex items-center justify-center p-2 rounded-md hamburger hover:text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition-all duration-500 ease-in-out`}
               aria-controls="mobile-menu"
               aria-expanded="false"
               onClick={handleToggleMenu}>
@@ -85,6 +81,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
         id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 grid">
           <Link
+            onClick={() => handleToggleMenu()}
             passHref
             href="#header"
             className={`${
@@ -95,44 +92,26 @@ const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
             Home
           </Link>
           <Link
+            onClick={() => handleToggleMenu()}
             passHref
-            href="/about"
+            href="#tech-stacks"
             className={`${
               themeMode === ThemeMode.LIGHT
                 ? "text-black"
                 : "text-white"
             } px-3 py-2 rounded-md text-sm font-medium`}>
-            About
+            Tech Stacks
           </Link>
           <Link
+            onClick={() => handleToggleMenu()}
             passHref
-            href="/tech-stack"
-            className={`${
-              themeMode === ThemeMode.LIGHT
-                ? "text-black"
-                : "text-white"
-            } px-3 py-2 rounded-md text-sm font-medium`}>
-            Tech Stack
-          </Link>
-          <Link
-            passHref
-            href="/projects"
+            href="#projects"
             className={`${
               themeMode === ThemeMode.LIGHT
                 ? "text-black"
                 : "text-white"
             } px-3 py-2 rounded-md text-sm font-medium`}>
             Projects
-          </Link>
-          <Link
-            passHref
-            href="/contact"
-            className={`${
-              themeMode === ThemeMode.LIGHT
-                ? "text-black"
-                : "text-white"
-            } px-3 py-2 rounded-md text-sm font-medium`}>
-            Contact
           </Link>
         </div>
       </div>

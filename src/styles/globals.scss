@@ -49,6 +49,9 @@ html {
   .card {
     background-color: $accent_dark_color;
   }
+  .hamburger {
+    background-color: $primary_dark_color;
+  }
 }
 
 [data-theme="light"] {
@@ -70,6 +73,9 @@ html {
   footer,
   .card {
     background-color: $accent_color;
+  }
+  .hamburger {
+    background-color: $primary_color;
   }
 }
 
