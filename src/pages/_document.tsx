@@ -36,6 +36,7 @@ export default function Document() {
         />
         <meta property="og:site_name" content="Babafemi Codes" />
       </Head>
+      <title>Babafemi codes</title>
       <body>
         <Main />
         <NextScript />

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Projects from "@/components/Projects";
 import Header from "@/components/Banner";
+import Head from "next/head";
 
 interface AppProps {
   Component: React.ComponentType;

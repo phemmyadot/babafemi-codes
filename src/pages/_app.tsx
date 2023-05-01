@@ -10,6 +10,7 @@ import { selectTheme, setTheme } from "@/store/themeSlice";
 import { PersistGate } from "redux-persist/integration/react";
 import { Poppins } from "next/font/google";
 import Footer from "@/components/Footer";
+import Head from "next/head";
 
 // Define the AppProps interface
 interface AppProps {
@@ -78,6 +79,9 @@ export default function Layout({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
+        <Head>
+          <title>Babafemi codes</title>
+        </Head>
         <App Component={Component} pageProps={pageProps} />
       </PersistGate>
     </Provider>
