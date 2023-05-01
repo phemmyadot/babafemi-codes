@@ -4,12 +4,12 @@ interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = ({}) => {
   return (
-    <footer className="bg-white pt-6 pb-2 shadow fixed bottom-0 w-full">
+    <footer className="bg-white py-3 shadow fixed bottom-0 w-full">
       <div className="container mx-auto px-4">
         <div className="flex justify-center">
           <a
             href="https://www.linkedin.com/in/babafemi-adojutelegan/"
-            className="mt-4 sm:mt-0 mr-10  flex items-center">
+            className="mr-5  flex items-center">
                 <Image
               priority={true}
               width={50}
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           </a>
           <a
             href="https://github.com/phemmyadot"
-            className="mt-4 sm:mt-0  flex items-center">
+            className="ml-5 flex items-center">
             <Image
               priority={true}
               width={50}
@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
             GitHub
           </a>
         </div>
-        <div className="mt-6 text-center text-gray-400">
+        <div className="mt-2 text-center text-gray-400">
           &copy; 2023 Babafemi Codes. All rights reserved.
         </div>
       </div>

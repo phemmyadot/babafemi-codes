@@ -63,7 +63,7 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <NavigationBar />
       <div
-        className={`${poppins.className} pt-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}>
+        className={`${poppins.className} py-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}>
         <Component {...pageProps} />
       </div>
       <Footer />

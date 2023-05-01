@@ -23,7 +23,8 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
   }, []);
 
   return (
-    <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 pt-[60px] pb-[155px] ">
+    <div id="projects" className=" min-h-[90vh] flex">
+      <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 m-auto">
       <h1 className="m-auto text-center text-2xl mb-4 font-medium">
         My Projects
       </h1>
@@ -71,6 +72,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

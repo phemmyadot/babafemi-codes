@@ -7,7 +7,7 @@ $secondary_color: red;
 $accent_color: #ffffff;
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 
 .theme-fab {

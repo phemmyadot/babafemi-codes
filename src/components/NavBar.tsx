@@ -39,43 +39,23 @@ const NavigationBar: React.FC<NavigationBarProps> = ({}) => {
               </Link>
               <Link
                 passHref
-                href="/about"
+                href="#tech-stacks"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
                     : "text-white"
                 } px-3 py-2 rounded-md text-sm font-medium`}>
-                About
+                Tech Stacks
               </Link>
               <Link
                 passHref
-                href="/tech-stack"
-                className={`${
-                  themeMode === ThemeMode.LIGHT
-                    ? "text-black"
-                    : "text-white"
-                } px-3 py-2 rounded-md text-sm font-medium`}>
-                Tech Stack
-              </Link>
-              <Link
-                passHref
-                href="/projects"
+                href="#projects"
                 className={`${
                   themeMode === ThemeMode.LIGHT
                     ? "text-black"
                     : "text-white"
                 } px-3 py-2 rounded-md text-sm font-medium`}>
                 Projects
-              </Link>
-              <Link
-                passHref
-                href="/contact"
-                className={`${
-                  themeMode === ThemeMode.LIGHT
-                    ? "text-black"
-                    : "text-white"
-                } px-3 py-2 rounded-md text-sm font-medium`}>
-                Contact
               </Link>
             </div>
           </div>
