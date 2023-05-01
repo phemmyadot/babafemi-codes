@@ -1,10 +1,10 @@
 import TechStack from "@/components/TechStack";
-import Header from "@/components/Header";
 import { selectTheme } from "@/store/themeSlice";
 import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Projects from "@/components/Projects";
+import Header from "@/components/Header";
 
 interface AppProps {
   Component: React.ComponentType;

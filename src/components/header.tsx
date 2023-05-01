@@ -5,7 +5,7 @@ interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = ({}) => {
   return (
-    <div
+    <div 
       id="header"
       className="flex justify-center md:justify-between  h-[90vh] items-center flex-wrap">
       <div className="order-2 md:order-1 w-full md:w-auto h-[100px]">
