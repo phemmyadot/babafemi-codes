@@ -1,7 +1,5 @@
 import { ThemeMode } from "@/core/enums/Theme.enum";
-import { IntroDTO, Intro } from "@/core/models/intro";
 import { selectTheme } from "@/store/themeSlice";
-import axios from "axios";
 import { Itim } from "next/font/google";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
