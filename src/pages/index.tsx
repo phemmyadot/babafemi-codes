@@ -4,7 +4,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Projects from "@/components/Projects";
-import Header from "@/components/Header";
+import Header from "@/components/Banner";
 
 interface AppProps {
   Component: React.ComponentType;
