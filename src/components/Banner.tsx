@@ -7,7 +7,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <div 
       id="header"
-      className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 flex justify-center md:justify-between  h-[94vh] items-center flex-wrap">
+      className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 flex justify-center md:justify-between  h-[90vh] items-center flex-wrap">
       <div className="order-2 md:order-1 w-full md:w-auto h-[100px]">
         <Typewriter />
       </div>

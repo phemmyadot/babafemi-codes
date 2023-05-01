@@ -37,11 +37,11 @@ const TechStack: React.FC<TechStackProps> = ({}) => {
     "tailwind",
   ];
   return (
-    <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 pb-[105px] ">
+    <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 py-[60px] pb-[105px] ">
       <h1 className="m-auto text-center text-2xl mb-4 font-medium">
         My Tech Stack
       </h1>
-      <p className="m-auto text-center mb-12">
+      <p className="m-auto text-center mb-[100px]">
         Technologies I’ve been working with recently
       </p>
       <div className="flex flex-wrap">

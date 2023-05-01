@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { selectTheme, setTheme } from "@/store/themeSlice";
 import { PersistGate } from "redux-persist/integration/react";
 import { Poppins } from "next/font/google";
+import Footer from "@/components/Footer";
 
 // Define the AppProps interface
 interface AppProps {
@@ -49,7 +50,7 @@ function App({ Component, pageProps }: AppProps) {
 
   // Apply the current theme to the HTML document
   useEffect(() => {
-    console.log('here')
+    console.log("here");
     const html = document.querySelector("html");
     if (html) {
       html.dataset.theme = theme;
@@ -65,7 +66,7 @@ function App({ Component, pageProps }: AppProps) {
         className={`${poppins.className} pt-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}>
         <Component {...pageProps} />
       </div>
-
+      <Footer />
       <ThemeToggle
         themeMode={theme}
         onToggle={toggleTheme}></ThemeToggle>
