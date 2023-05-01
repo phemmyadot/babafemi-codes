@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-$primary_color: #091a28;
+$primary_color: #ffffff;
+$primary_dark_color: #091a28;
 $secondary_color: red;
-$accent_color: #ffffff;
+$accent_color: #f7f9fd;
+$accent_dark_color: #10273a;
 
 html {
   scroll-behavior: smooth !important;
@@ -30,20 +32,22 @@ html {
   /* your styles for dark theme */
 
   body {
-    background-color: $primary_color;
-    color: $accent_color;
+    background-color: $primary_dark_color;
+    color: $primary_color;
 
     .theme-fab {
-      background-color: $accent_color;
-      color: $primary_color;
+      background-color: $primary_color;
+      color: $primary_dark_color;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       &:hover {
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
       }
     }
   }
-  nav,footer {
-    background-color: $primary_color;
+  nav,
+  footer,
+  .card {
+    background-color: $accent_dark_color;
   }
 }
 
@@ -51,18 +55,20 @@ html {
   /* your styles for light theme */
 
   body {
-    background-color: $accent_color;
-    color: $primary_color;
+    background-color: $primary_color;
+    color: $primary_dark_color;
     .theme-fab {
-      background-color: $primary_color;
-      color: $accent_color;
+      background-color: $primary_dark_color;
+      color: $primary_color;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
       &:hover {
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
       }
     }
   }
-  nav,footer {
+  nav,
+  footer,
+  .card {
     background-color: $accent_color;
   }
 }

@@ -35,7 +35,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {projects.map((p, i) => (
           <div
-            className="bg-white rounded-lg shadow-md overflow-hidden flex-col flex"
+            className="bg-white rounded-lg shadow-md overflow-hidden flex-col flex card"
             key={p.id}>
             <Image
               priority={true}
@@ -47,10 +47,10 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
               alt={p.title}
             />
             <div className="p-4 flex-col flex justify-between flex-1">
-              <h2 className="text-lg font-medium text-gray-800 capitalize">
+              <h2 className="text-lg font-medium capitalize">
                 {p.title}
               </h2>
-              <p className="text-gray-600 mt-2 text-sm flex-1">
+              <p className=" mt-2 text-sm flex-1">
                 {p.description}
               </p>
               <div className="mt-4 flex text-right justify-end items-center">
