@@ -76,15 +76,3 @@ html {
 .slide-in-section.active {
   left: 0;
 }
-
-.slide-in-section.right {
-  position: relative;
-  right: -100%;
-  left: unset !important;
-  transition: all 0.5s ease;
-}
-
-.slide-in-section.right.active {
-  right: 0;
-  left: unset !important;
-}
