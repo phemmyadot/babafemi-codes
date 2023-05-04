@@ -1,5 +1,6 @@
 import { ThemeMode } from "@/core/enums/Theme.enum";
 import { selectTheme } from "@/store/themeSlice";
+import { log } from "console";
 import { Itim } from "next/font/google";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -32,14 +33,14 @@ const Typewriter: React.FC<TypewriterProps> = () => {
         setDisplayText(
           currentString.slice(0, displayText.length + 1)
         );
-      }, 200);
+      }, 100);
       return () => clearTimeout(timeoutId);
     } else {
       const timeoutId = setTimeout(() => {
         setCurrentIndex((currentIndex + 1) % texts.length);
         setDisplayText("");
         setIsTyping(true);
-      }, 1000);
+      }, 500);
 
       return () => clearTimeout(timeoutId);
     }
