@@ -33,6 +33,19 @@ const Footer: React.FC<FooterProps> = ({}) => {
             />
             GitHub
           </a>
+          <a
+            href="https://babafemi-adojutelegan.hashnode.dev/"
+            className="ml-5 flex items-center">
+            <Image
+              priority={true}
+              width={50}
+              height={50}
+              className="h-4 w-4 object-cover mr-1"
+              src="./assets/hashnode.svg"
+              alt="hashnode"
+            />
+            Hashnode
+          </a>
         </div>
         <div className="mt-2 text-center text-gray-400">
           &copy; 2023 Babafemi Codes. All rights reserved.
