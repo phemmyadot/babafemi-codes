@@ -6,10 +6,10 @@ const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <footer className="bg-white py-3 shadow fixed bottom-0 w-full">
       <div className="container mx-auto px-4">
-        <div className="flex justify-center">
+        <div className="space-x-4 flex justify-center">
           <a
             href="https://www.linkedin.com/in/babafemi-adojutelegan/"
-            className="mr-5  flex items-center">
+            className="  flex items-center">
                 <Image
               priority={true}
               width={50}
@@ -22,7 +22,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           </a>
           <a
             href="https://github.com/phemmyadot"
-            className="ml-5 flex items-center">
+            className=" flex items-center">
             <Image
               priority={true}
               width={50}
@@ -35,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
           </a>
           <a
             href="https://babafemi-adojutelegan.hashnode.dev/"
-            className="ml-5 flex items-center">
+            className=" flex items-center">
             <Image
               priority={true}
               width={50}
