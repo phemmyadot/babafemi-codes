@@ -26,7 +26,6 @@ export const fetchAndSaveProjects = async () => {
       `https://api.github.com/users/${username}/repos`
     );
     const projectsData = await response.json();
-
     for (const projectData of projectsData) {
       const existingProject = await projects.findOne({ id: projectData.id });
 
@@ -39,11 +38,10 @@ export const fetchAndSaveProjects = async () => {
         };
 
         await addProject(newProject);
-        console.log(`Added new project: ${newProject.title}`);
       }
     }
   } catch (error) {
-    console.error("Error fetching or saving projects:", error);
+    return { error: "Error fetching or saving projects:" };
   }
 };
 
@@ -72,7 +70,6 @@ export const addProject = async (project: ProjectDTO) => {
     const result = await projects.insertOne(project);
     return { projects: result };
   } catch (error) {
-    console.log(error);
     return {
       error: "Failed to fetch projects",
     };

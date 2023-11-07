@@ -1,6 +1,5 @@
 import { ThemeMode } from "@/core/enums/Theme.enum";
 import { selectTheme } from "@/store/themeSlice";
-import { log } from "console";
 import { Itim } from "next/font/google";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -24,15 +23,12 @@ const Typewriter: React.FC<TypewriterProps> = () => {
       "TRANSFORMING IDEAS INTO REALITY",
       "INNOVATING WITH CODE AND DESIGN",
     ];
-    const currentString =
-      texts.length == 0 ? "" : texts[currentIndex];
+    const currentString = texts.length == 0 ? "" : texts[currentIndex];
     const isDisplayed = displayText === currentString;
 
     if (!isDisplayed) {
       const timeoutId = setTimeout(() => {
-        setDisplayText(
-          currentString.slice(0, displayText.length + 1)
-        );
+        setDisplayText(currentString.slice(0, displayText.length + 1));
       }, 100);
       return () => clearTimeout(timeoutId);
     } else {
@@ -50,10 +46,9 @@ const Typewriter: React.FC<TypewriterProps> = () => {
       className={`${
         itim.className
       } flex justify-center md:justify-start m-auto text-3xl md:text-[38px] text-center font-semibold capitalize ${
-        themeMode === ThemeMode.LIGHT
-          ? "text-[#42446E]"
-          : "text-[#D9D9D9]"
-      }`}>
+        themeMode === ThemeMode.LIGHT ? "text-[#42446E]" : "text-[#D9D9D9]"
+      }`}
+    >
       {displayText}
     </span>
   );

@@ -51,7 +51,6 @@ function App({ Component, pageProps }: AppProps) {
 
   // Apply the current theme to the HTML document
   useEffect(() => {
-    console.log("here");
     const html = document.querySelector("html");
     if (html) {
       html.dataset.theme = theme;
@@ -64,13 +63,12 @@ function App({ Component, pageProps }: AppProps) {
     <>
       <NavigationBar />
       <div
-        className={`${poppins.className} py-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}>
+        className={`${poppins.className} py-20 mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8`}
+      >
         <Component {...pageProps} />
       </div>
       <Footer />
-      <ThemeToggle
-        themeMode={theme}
-        onToggle={toggleTheme}></ThemeToggle>
+      <ThemeToggle themeMode={theme} onToggle={toggleTheme}></ThemeToggle>
     </>
   );
 }
