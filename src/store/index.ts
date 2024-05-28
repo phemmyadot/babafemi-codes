@@ -17,7 +17,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
-  middleware:[thunk]
+  middleware: [thunk],
 });
 
 export type RootState = ReturnType<typeof store.getState>;

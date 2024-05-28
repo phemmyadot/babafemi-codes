@@ -18,13 +18,17 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
           repository: i.repository,
         };
       });
+      _projects.sort((a, b) => a.title.localeCompare(b.title));
       setProjects(_projects);
     });
   }, []);
 
   return (
-    <div id="projects" className=" min-h-[90vh] flex pb-20 sm:pb-10">
-      <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 m-auto">
+    <div
+      id="projects"
+      className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 m-auto min-h-[90vh] flex pb-20 sm:pb-10"
+    >
+      <div className="">
         <h1 className="m-auto text-center text-2xl mb-4 font-medium">
           My Projects
         </h1>
@@ -41,8 +45,7 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
                 width={400}
                 height={400}
                 className="w-full h-36 object-cover"
-                src={`https://source.unsplash.com/random?nature,cloud,hills
-              ${p.id}`}
+                src={`https://picsum.photos/600/300/?blur&?random=1${p.id}`}
                 alt={p.title}
               />
               <div className="p-4 flex-col flex justify-between flex-1">
@@ -54,9 +57,9 @@ const Projects: React.FC<ProjectsProps> = ({}) => {
                     width={50}
                     height={50}
                     className="h-4 w-4 object-cover mr-1"
-                    src="./assets/github.svg"
+                    src="/assets/github.svg"
                     alt={p.title}
-                  />{" "}
+                  />
                   <a
                     target="blank"
                     href={p.repository}

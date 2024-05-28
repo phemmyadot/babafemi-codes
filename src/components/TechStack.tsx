@@ -39,25 +39,25 @@ const TechStack: React.FC<TechStackProps> = ({}) => {
   return (
     <div id="tech-stacks" className="min-h-[90vh] flex pb-20 sm:pb-0">
       <div className="slide-in-section transform transition translate-x-0 ease-in-out duration-500 m-auto">
-      <h1 className="m-auto text-center text-2xl mb-4 font-medium">
-        My Tech Stack
-      </h1>
-      <p className="m-auto text-center mb-[100px]">
-        Technologies I’ve been working with recently
-      </p>
-      <div className="flex flex-wrap">
-        {skills.map((s, i) => (
-          <Image
-            priority={true}
-            key={i}
-            width={60}
-            height={60}
-            src={`./assets/${s}.svg`}
-            alt={s}
-            className="m-4 h-[50px] md:h-[60px] w-[50px] md:w-[60px]"
-          />
-        ))}
-      </div>
+        <h1 className="m-auto text-center text-2xl mb-4 font-medium">
+          My Tech Stack
+        </h1>
+        <p className="m-auto text-center mb-[100px]">
+          Technologies I’ve been working with recently
+        </p>
+        <div className="flex flex-wrap">
+          {skills.map((s, i) => (
+            <Image
+              priority={true}
+              key={i}
+              width={60}
+              height={60}
+              src={`/assets/${s}.svg`}
+              alt={s}
+              className="m-4 h-[50px] md:h-[60px] w-[50px] md:w-[60px]"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

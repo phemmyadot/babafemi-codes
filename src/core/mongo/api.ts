@@ -17,37 +17,8 @@ const init = async () => {
   }
 };
 
-// Function to fetch and save projects
-export const fetchAndSaveProjects = async () => {
-  const username = process.env.GITHUB_USERNAME;
-
-  try {
-    const response = await fetch(
-      `https://api.github.com/users/${username}/repos`
-    );
-    const projectsData = await response.json();
-    for (const projectData of projectsData) {
-      const existingProject = await projects.findOne({ id: projectData.id });
-
-      if (!existingProject) {
-        const newProject: ProjectDTO = {
-          _id: projectData.id.toString(),
-          title: projectData.name,
-          description: projectData.body,
-          repository: projectData.html_url,
-        };
-
-        await addProject(newProject);
-      }
-    }
-  } catch (error) {
-    return { error: "Error fetching or saving projects:" };
-  }
-};
-
 (async () => {
   await init();
-  await fetchAndSaveProjects();
 })();
 
 export const getProjects = async () => {
