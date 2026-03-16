@@ -7,6 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'sm' | 'md' | 'lg'
   as?: 'button' | 'a'
   href?: string
+  download?: boolean | string
+  target?: string
+  rel?: string
 }
 
 const sizeClasses = {
@@ -16,7 +19,7 @@ const sizeClasses = {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', className = '', children, href, as: Tag = 'button', ...props }, ref) => {
+  ({ variant = 'primary', size = 'md', className = '', children, href, download, target, rel, as: Tag = 'button', ...props }, ref) => {
     const base =
       'inline-flex items-center gap-2 font-display font-semibold rounded-md transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:opacity-50 disabled:cursor-not-allowed'
 
@@ -31,7 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (href) {
       return (
-        <a href={href} className={classes}>
+        <a href={href} className={classes} download={download} target={target} rel={rel}>
           {children}
         </a>
       )

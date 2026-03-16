@@ -68,8 +68,8 @@
 
 - [x] Add Open Graph and Twitter card meta tags (dynamic per page)
 - [x] Add `robots.txt` and `sitemap.xml`
-- [ ] Optimize all images (next/image with blur placeholder)
-- [ ] Add resume PDF to `/public/assets/resume.pdf` for download
+- [x] Optimize all images (next/image with blur placeholder)
+- [x] Add resume PDF to `/public/assets/resume.pdf` for download
 - [ ] Audit Lighthouse score (target: 95+ across all categories)
 - [ ] Verify Core Web Vitals: LCP < 2.5s, CLS < 0.1
 

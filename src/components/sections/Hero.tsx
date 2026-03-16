@@ -65,7 +65,7 @@ export function Hero() {
             View My Work
             <ArrowDown size={18} />
           </Button>
-          <Button href="/assets/resume.pdf" variant="outline" size="lg">
+          <Button href="/assets/Babafemi_Adojutelegan_Resume.pdf" variant="outline" size="lg" download>
             Download Resume
             <Download size={18} />
           </Button>

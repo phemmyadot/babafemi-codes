@@ -45,14 +45,6 @@ export const metadata: Metadata = {
       'Engineering Experiences. Shipping Solutions. Senior Software Engineer specializing in mobile and full stack development.',
     url: 'https://babafemi.codes',
     siteName: 'babafemi.codes',
-    images: [
-      {
-        url: '/assets/ogImage.png',
-        width: 1200,
-        height: 630,
-        alt: 'Babafemi Adojutelegan — Senior Software Engineer',
-      },
-    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -60,7 +52,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Babafemi Adojutelegan — Senior Software Engineer',
     description: 'Engineering Experiences. Shipping Solutions.',
-    images: ['/assets/ogImage.png'],
   },
   robots: {
     index: true,
