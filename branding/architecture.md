@@ -98,7 +98,7 @@ src/
 │
 └── public/
     └── assets/
-        ├── avatar.jpg
+        ├── avatar.png
         ├── resume.pdf      # Downloadable resume
         └── projects/       # Project screenshots (optional)
 ```

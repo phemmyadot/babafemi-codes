@@ -4,9 +4,9 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { Badge } from '@/components/ui/Badge'
 
 const stats = [
-  { value: '7+',  label: 'Years Experience' },
-  { value: '3',   label: 'Companies' },
-  { value: '1',   label: 'AWS Certification' },
+  { value: '7+', label: 'Years Experience' },
+  { value: '3', label: 'Companies' },
+  { value: '1', label: 'AWS Certification' },
 ]
 
 export function About() {
@@ -62,7 +62,7 @@ export function About() {
                 />
                 <div className="relative rounded-xl overflow-hidden w-48 h-48 sm:w-56 sm:h-56 border border-border">
                   <Image
-                    src="/assets/avatar.jpg"
+                    src="/assets/avatar.png"
                     alt="Babafemi Adojutelegan"
                     fill
                     className="object-cover"
