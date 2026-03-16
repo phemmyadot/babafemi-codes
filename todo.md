@@ -85,20 +85,11 @@
 - [x] **Scroll progress indicator** — thin gradient bar at top of viewport
 - [ ] **Command palette** — Cmd+K / Ctrl+K quick navigation between sections
 - [ ] **Copy email to clipboard** — click email address in Contact → copies + shows confirmation toast
-- [ ] **Blog section** — pull latest posts from Hashnode RSS feed (already on hashnode, linked in old footer)
+- [x] **Blog section** — pull latest posts from Hashnode RSS feed (already on hashnode, linked in old footer)
 - [ ] **GitHub activity graph** — embed contribution graph or recent activity widget
 - [ ] **Case study pages** — `/projects/[id]` deep-dive pages for featured projects
-- [ ] **Analytics** — Netlify Analytics or Plausible (privacy-friendly)
 - [ ] **Toast notifications** — success/error feedback on contact form submission
 - [ ] **Back-to-top button** — appears after scrolling past hero
 - [ ] **Keyboard navigation** — full `tab` + `enter` accessibility across all interactive elements
 
 ---
-
-## Notes
-
-- Projects data lives in `PROJECTS_JSON` environment variable (set in Vercel dashboard for production)
-- Email delivery via Resend API (`RESEND_API_KEY` env var)
-- Dark-mode only — no light mode toggle (brand decision: premium dark aesthetic)
-- All sections are single-page (SPA scroll) — no separate routes except `/api/*`
-- Keep `babafemi.codes` as the handle/brand throughout
