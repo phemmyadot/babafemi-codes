@@ -5,23 +5,24 @@ import { Skills }     from '@/components/sections/Skills'
 import { Projects }   from '@/components/sections/Projects'
 import { Contact }    from '@/components/sections/Contact'
 import { getProjects } from '@/lib/projects'
-import { getSkills, getExperience } from '@/lib/queries'
+import { getSkills, getExperience, getProfile } from '@/lib/queries'
 
 export default async function Home() {
-  const [projects, skillGroups, experience] = await Promise.all([
+  const [projects, skillGroups, experience, profile] = await Promise.all([
     getProjects(),
     getSkills(),
     getExperience(),
+    getProfile(),
   ])
 
   return (
     <>
-      <Hero />
-      <About />
+      <Hero profile={profile} />
+      <About profile={profile} />
       <Experience experience={experience} />
       <Skills skillGroups={skillGroups} />
       <Projects projects={projects} />
-      <Contact />
+      <Contact profile={profile} />
     </>
   )
 }

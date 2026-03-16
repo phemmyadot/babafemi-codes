@@ -1,6 +1,36 @@
 import { getClient } from './sanity'
 import { Project } from '@/core/models/project'
 
+export interface Profile {
+  firstName: string
+  lastName: string
+  tagline: string
+  titles: string[]
+  bio: string[]
+  email: string
+  linkedin: string
+  github: string
+  hashnode: string
+  avatar: string | null
+  resumeUrl: string
+  openToWork: boolean
+  stats: { value: string; label: string }[]
+  certifications: string[]
+}
+
+export async function getProfile(): Promise<Profile | null> {
+  return getClient().fetch(
+    `*[_type == "profile"][0]{
+      firstName, lastName, tagline, titles, bio,
+      email, linkedin, github, hashnode,
+      "avatar": avatar.asset->url,
+      resumeUrl, openToWork, stats, certifications
+    }`,
+    {},
+    { next: { revalidate: 60 } }
+  )
+}
+
 export interface ExperienceItem {
   company: string
   role: string

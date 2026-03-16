@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
 import { NavBar } from '@/components/layout/NavBar'
 import { Footer } from '@/components/layout/Footer'
+import { getProfile } from '@/lib/queries'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -59,11 +60,13 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const profile = await getProfile()
+
   return (
     <html
       lang="en"
@@ -72,7 +75,7 @@ export default function RootLayout({
       <body>
         <NavBar />
         <main>{children}</main>
-        <Footer />
+        <Footer profile={profile} />
       </body>
     </html>
   )

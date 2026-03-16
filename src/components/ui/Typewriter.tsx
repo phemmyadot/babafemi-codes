@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-const titles = [
+const defaultTitles = [
   'Senior Software Engineer',
   'Mobile Developer',
   'Full Stack Engineer',
@@ -10,7 +10,11 @@ const titles = [
   'AWS Certified Architect',
 ]
 
-export function Typewriter() {
+interface TypewriterProps {
+  titles?: string[]
+}
+
+export function Typewriter({ titles = defaultTitles }: TypewriterProps) {
   const [index, setIndex]       = useState(0)
   const [text, setText]         = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
@@ -26,7 +30,7 @@ export function Typewriter() {
       }
       if (isDeleting && text === '') {
         setIsDeleting(false)
-        setIndex((i) => (i + 1) % titles.length)
+        setIndex((i) => (i + 1) % (titles.length || 1))
         return
       }
       setText(
