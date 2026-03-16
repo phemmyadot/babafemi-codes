@@ -33,7 +33,13 @@ export const profileSchema = defineType({
       type: 'image',
       options: { hotspot: true },
     }),
-    defineField({ name: 'resumeUrl', title: 'Resume URL', type: 'url', description: 'Public URL to the resume PDF' }),
+    defineField({
+      name: 'resume',
+      title: 'Resume',
+      type: 'file',
+      description: 'Upload your resume PDF — served via Sanity CDN',
+      options: { accept: '.pdf' },
+    }),
     defineField({ name: 'openToWork', title: 'Open to Work', type: 'boolean', initialValue: true }),
     defineField({
       name: 'stats',

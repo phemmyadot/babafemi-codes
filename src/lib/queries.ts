@@ -24,7 +24,8 @@ export async function getProfile(): Promise<Profile | null> {
       firstName, lastName, tagline, titles, bio,
       email, linkedin, github, hashnode,
       "avatar": avatar.asset->url,
-      resumeUrl, openToWork, stats, certifications
+      "resumeUrl": resume.asset->url,
+      openToWork, stats, certifications
     }`,
     {},
     { next: { revalidate: 60 } }
