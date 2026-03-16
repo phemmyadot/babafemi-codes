@@ -1,0 +1,52 @@
+[
+    {
+        "id": "1",
+        "title": "equitee",
+        "description": "A personal portfolio tracker for NGX (Nigerian Stock Exchange) and US equities. Track holdings, monitor live prices, view dividends, analyse performance, and manage positions — all in one place.",
+        "tags": [
+            "Next.js",
+            "Fast API",
+            "Sqlite",
+            "Python",
+            "Typescript",
+            "Tailwind CSS"
+        ],
+        "category": "web",
+        "repository": "https://github.com/...",
+        "liveUrl": "https://...",
+        "featured": true,
+        "image": "/assets/projects/project-name.png"
+    },
+    {
+        "id": "2",
+        "title": "Hire Bound",
+        "description": "Powered by Claude AI, Hire Bound is a resume builder that transforms your current resume into a polished, ATS-friendly format. Simply upload your existing resume and past the job description, and let Hire Bound do the rest. It analyzes your resume, identifies areas for improvement, and generates a new version that is optimized for applicant tracking systems (ATS) and tailored to the specific job you're applying for. It also provides insights and suggestions to help you stand out to recruiters and increase your chances of landing your dream job. And creates cover letters that are personalized to the job description.",
+        "tags": [
+            "Next.js",
+            "Claude AI",
+            "Tailwind CSS",
+            "Typescript"
+        ],
+        "category": "web",
+        "repository": "",
+        "liveUrl": "https://...",
+        "featured": false,
+        "image": "/assets/projects/project-name.png"
+    },
+    {
+        "id": "3",
+        "title": "Babafemi Portfolio",
+        "description": "My personal portfolio website built with Next.js and Tailwind CSS. It showcases my projects, skills, and experience in a clean and modern design. The website is responsive and optimized for performance, providing a seamless user experience across all devices.",
+        "tags": [
+            "Next.js",
+            "Tailwind CSS",
+            "Typescript",
+            "Sanity CMS"
+        ],
+        "category": "web",
+        "repository": "",
+        "liveUrl": "",
+        "featured": false,
+        "image": "/assets/projects/project-name.png"
+    }
+]

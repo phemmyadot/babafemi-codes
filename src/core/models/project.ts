@@ -1,14 +1,14 @@
-import { ObjectId } from "mongodb";
+export type ProjectCategory = 'mobile' | 'web' | 'backend' | 'fullstack'
 
 export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  repository: string;
-}
-export interface ProjectDTO {
-  _id?: ObjectId;
-  title: string;
-  description: string;
-  repository: string;
+  id: string
+  title: string
+  description: string
+  tags: string[]
+  category: ProjectCategory
+  repository?: string
+  liveUrl?: string
+  featured: boolean
+  order: number
+  thumbnail?: string // Sanity image URL
 }

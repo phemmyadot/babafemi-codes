@@ -2,8 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["picsum.photos"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
+    ],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

@@ -10,13 +10,13 @@
 - [x] Create `branding/brand.md` — full brand guide
 - [x] Create `branding/tokens.ts` — design tokens (colors, fonts, motion)
 - [x] Create `branding/architecture.md` — app structure and tech decisions
-- [ ] Upgrade to Next.js 14 App Router
-- [ ] Remove MongoDB, Redux, SASS, Axios from dependencies
-- [ ] Install Framer Motion, Resend, Lucide React
-- [ ] Configure Tailwind with brand color tokens
-- [ ] Set up Google Fonts: Space Grotesk + Inter (via next/font)
-- [ ] Set up JetBrains Mono for code/mono contexts
-- [ ] Add `globals.css` with CSS custom properties from brand tokens
+- [x] Upgrade to Next.js 16 App Router
+- [x] Remove MongoDB, Redux, SASS, Axios from dependencies
+- [x] Install Framer Motion, Resend, Lucide React
+- [x] Configure Tailwind with brand color tokens
+- [x] Set up Google Fonts: Space Grotesk + Inter (via next/font)
+- [x] Set up JetBrains Mono for code/mono contexts
+- [x] Add `globals.css` with CSS custom properties from brand tokens
 - [ ] Configure `.env.local` with Sanity keys and `RESEND_API_KEY`
 
 ---
