@@ -1,29 +1,33 @@
 'use client'
 
 import { useState } from 'react'
-import { Github, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { Badge } from '@/components/ui/Badge'
 import { Card } from '@/components/ui/Card'
 import { Project, ProjectCategory } from '@/core/models/project'
 
-type FilterOption = 'all' | ProjectCategory
-
-const filterLabels: { value: FilterOption; label: string }[] = [
-  { value: 'all',       label: 'All' },
-  { value: 'mobile',    label: 'Mobile' },
-  { value: 'web',       label: 'Web' },
-  { value: 'fullstack', label: 'Full Stack' },
-  { value: 'backend',   label: 'Backend' },
-]
+const categoryLabel: Record<string, string> = {
+  mobile:    'Mobile',
+  web:       'Web',
+  fullstack: 'Full Stack',
+  backend:   'Backend',
+}
 
 interface ProjectsProps {
   projects: Project[]
 }
 
 export function Projects({ projects }: ProjectsProps) {
-  const [filter, setFilter] = useState<FilterOption>('all')
+  const [filter, setFilter] = useState<ProjectCategory | 'all'>('all')
+
+  const filters = [
+    { value: 'all' as const, label: 'All' },
+    ...Array.from(new Set(projects.map((p) => p.category)))
+      .filter(Boolean)
+      .map((c) => ({ value: c, label: categoryLabel[c] ?? c })),
+  ]
 
   const filtered = filter === 'all'
     ? projects
@@ -43,7 +47,7 @@ export function Projects({ projects }: ProjectsProps) {
         {/* Filter pills */}
         <AnimatedSection delay={100}>
           <div className="flex flex-wrap gap-2 mb-12">
-            {filterLabels.map(({ value, label }) => (
+            {filters.map(({ value, label }) => (
               <button
                 key={value}
                 onClick={() => setFilter(value)}
@@ -104,7 +108,7 @@ export function Projects({ projects }: ProjectsProps) {
                           rel="noopener noreferrer"
                           className="flex items-center gap-1.5 text-text-muted hover:text-text-primary transition-colors text-sm"
                         >
-                          <Github size={15} />
+                          <ExternalLink size={15} />
                           Code
                         </a>
                       )}
