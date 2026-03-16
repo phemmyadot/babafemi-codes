@@ -17,19 +17,19 @@
 - [x] Set up Google Fonts: Space Grotesk + Inter (via next/font)
 - [x] Set up JetBrains Mono for code/mono contexts
 - [x] Add `globals.css` with CSS custom properties from brand tokens
-- [ ] Configure `.env.local` with Sanity keys and `RESEND_API_KEY`
+- [x] Configure `.env.local` with Sanity keys and `RESEND_API_KEY` (see `.env.example`)
 
 ---
 
 ## Phase 2 — Layout & Navigation
 
-- [ ] Build `NavBar` — fixed top, scroll-aware background blur, mobile hamburger
-- [ ] Build `Footer` — LinkedIn, GitHub, Hashnode links + copyright
-- [ ] Build `AnimatedSection` wrapper — Framer Motion fade-in-up on viewport entry
-- [ ] Build `SectionHeader` — gradient-accented section title component
-- [ ] Build `Badge` / chip component — for skills and tags
-- [ ] Build `Button` component — primary (gradient) and outline variants
-- [ ] Build `Card` component — for projects and experience items
+- [x] Build `NavBar` — fixed top, scroll-aware background blur, mobile hamburger
+- [x] Build `Footer` — LinkedIn, GitHub, Hashnode links + copyright
+- [x] Build `AnimatedSection` wrapper — fade-in-up on viewport entry
+- [x] Build `SectionHeader` — gradient-accented section title component
+- [x] Build `Badge` / chip component — for skills and tags
+- [x] Build `Button` component — primary (gradient) and outline variants
+- [x] Build `Card` component — for projects and experience items
 
 ---
 
