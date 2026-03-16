@@ -6,9 +6,10 @@ export interface Project {
   description: string
   tags: string[]
   category: ProjectCategory
+  categoryLabel: string
   repository?: string
   liveUrl?: string
   featured: boolean
   order: number
-  thumbnail?: string // Sanity image URL
+  thumbnail?: string
 }

@@ -8,13 +8,6 @@ import { Badge } from '@/components/ui/Badge'
 import { Card } from '@/components/ui/Card'
 import { Project, ProjectCategory } from '@/core/models/project'
 
-const categoryLabel: Record<string, string> = {
-  mobile:    'Mobile',
-  web:       'Web',
-  fullstack: 'Full Stack',
-  backend:   'Backend',
-}
-
 interface ProjectsProps {
   projects: Project[]
 }
@@ -24,9 +17,9 @@ export function Projects({ projects }: ProjectsProps) {
 
   const filters = [
     { value: 'all' as const, label: 'All' },
-    ...Array.from(new Set(projects.map((p) => p.category)))
-      .filter(Boolean)
-      .map((c) => ({ value: c, label: categoryLabel[c] ?? c })),
+    ...Array.from(
+      new Map(projects.filter((p) => p.category).map((p) => [p.category, p.categoryLabel ?? p.category]))
+    ).map(([value, label]) => ({ value: value as ProjectCategory, label })),
   ]
 
   const filtered = filter === 'all'

@@ -76,6 +76,14 @@ const PROJECT_FIELDS = `
   "thumbnail": thumbnail.asset->url,
   tags,
   category,
+  "categoryLabel": select(
+    defined(categoryLabel) && categoryLabel != "" => categoryLabel,
+    category == "mobile"    => "Mobile",
+    category == "web"       => "Web",
+    category == "fullstack" => "Full Stack",
+    category == "backend"   => "Backend",
+    category
+  ),
   repository,
   liveUrl,
   featured,

@@ -19,6 +19,9 @@
 .DS_Store
 *.pem
 
+# local reference docs (contain personal info)
+profile.md
+
 # debug
 npm-debug.log*
 yarn-debug.log*

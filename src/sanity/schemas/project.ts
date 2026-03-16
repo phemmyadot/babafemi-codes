@@ -37,14 +37,20 @@ export const projectSchema = defineType({
       type:    'string',
       options: {
         list: [
-          { title: 'Mobile',    value: 'mobile' },
-          { title: 'Web',       value: 'web' },
+          { title: 'Mobile',     value: 'mobile' },
+          { title: 'Web',        value: 'web' },
           { title: 'Full Stack', value: 'fullstack' },
-          { title: 'Backend',   value: 'backend' },
+          { title: 'Backend',    value: 'backend' },
         ],
         layout: 'radio',
       },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name:        'categoryLabel',
+      title:       'Category Display Label',
+      type:        'string',
+      description: 'Override the filter pill label (e.g. "Full Stack" instead of "fullstack")',
     }),
     defineField({
       name:  'repository',

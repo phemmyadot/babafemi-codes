@@ -2,24 +2,17 @@
 
 import { useState, useEffect } from 'react'
 
-const defaultTitles = [
-  'Senior Software Engineer',
-  'Mobile Developer',
-  'Full Stack Engineer',
-  'React Native Specialist',
-  'AWS Certified Architect',
-]
-
 interface TypewriterProps {
-  titles?: string[]
+  titles: string[]
 }
 
-export function Typewriter({ titles = defaultTitles }: TypewriterProps) {
-  const [index, setIndex]       = useState(0)
-  const [text, setText]         = useState('')
+export function Typewriter({ titles }: TypewriterProps) {
+  const [index, setIndex]           = useState(0)
+  const [text, setText]             = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
+    if (!titles.length) return
     const current = titles[index]
     const speed   = isDeleting ? 40 : 90
 
@@ -30,7 +23,7 @@ export function Typewriter({ titles = defaultTitles }: TypewriterProps) {
       }
       if (isDeleting && text === '') {
         setIsDeleting(false)
-        setIndex((i) => (i + 1) % (titles.length || 1))
+        setIndex((i) => (i + 1) % titles.length)
         return
       }
       setText(
@@ -41,7 +34,9 @@ export function Typewriter({ titles = defaultTitles }: TypewriterProps) {
     }, speed)
 
     return () => clearTimeout(timer)
-  }, [text, isDeleting, index])
+  }, [text, isDeleting, index, titles])
+
+  if (!titles.length) return null
 
   return (
     <span className="gradient-text">

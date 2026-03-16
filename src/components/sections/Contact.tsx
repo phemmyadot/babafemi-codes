@@ -17,10 +17,6 @@ export function Contact({ profile }: ContactProps) {
   const [form, setForm]     = useState({ name: '', email: '', message: '' })
   const [status, setStatus] = useState<Status>('idle')
 
-  const email    = profile?.email    ?? 'babafemiadojutelegan@gmail.com'
-  const linkedin = profile?.linkedin ?? 'https://linkedin.com/in/badojutelegan'
-  const linkedinLabel = linkedin.replace('https://', '').replace('http://', '')
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -34,12 +30,8 @@ export function Contact({ profile }: ContactProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      if (res.ok) {
-        setStatus('success')
-        setForm({ name: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-      }
+      setStatus(res.ok ? 'success' : 'error')
+      if (res.ok) setForm({ name: '', email: '', message: '' })
     } catch {
       setStatus('error')
     }
@@ -61,7 +53,6 @@ export function Contact({ profile }: ContactProps) {
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-          {/* Form */}
           <AnimatedSection delay={100}>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
@@ -94,7 +85,6 @@ export function Contact({ profile }: ContactProps) {
             </form>
           </AnimatedSection>
 
-          {/* Links */}
           <AnimatedSection delay={200}>
             <div className="space-y-6 md:pt-2">
               <p className="text-text-secondary leading-relaxed">
@@ -104,25 +94,29 @@ export function Contact({ profile }: ContactProps) {
               </p>
 
               <div className="space-y-4">
-                <a href={`mailto:${email}`} className="flex items-center gap-4 p-4 rounded-lg bg-surface border border-border hover:border-accent-primary group transition-colors duration-200">
-                  <div className="p-2 rounded-md bg-surface-elevated group-hover:bg-accent-primary/10 transition-colors">
-                    <Mail size={18} className="text-accent-primary" />
-                  </div>
-                  <div>
-                    <p className="font-mono text-xs text-text-muted uppercase tracking-widest mb-0.5">Email</p>
-                    <p className="text-text-primary text-sm">{email}</p>
-                  </div>
-                </a>
+                {profile?.email && (
+                  <a href={`mailto:${profile.email}`} className="flex items-center gap-4 p-4 rounded-lg bg-surface border border-border hover:border-accent-primary group transition-colors duration-200">
+                    <div className="p-2 rounded-md bg-surface-elevated group-hover:bg-accent-primary/10 transition-colors">
+                      <Mail size={18} className="text-accent-primary" />
+                    </div>
+                    <div>
+                      <p className="font-mono text-xs text-text-muted uppercase tracking-widest mb-0.5">Email</p>
+                      <p className="text-text-primary text-sm">{profile.email}</p>
+                    </div>
+                  </a>
+                )}
 
-                <a href={linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg bg-surface border border-border hover:border-accent-primary group transition-colors duration-200">
-                  <div className="p-2 rounded-md bg-surface-elevated group-hover:bg-accent-primary/10 transition-colors">
-                    <LinkedinIcon size={18} className="text-accent-primary" />
-                  </div>
-                  <div>
-                    <p className="font-mono text-xs text-text-muted uppercase tracking-widest mb-0.5">LinkedIn</p>
-                    <p className="text-text-primary text-sm">{linkedinLabel}</p>
-                  </div>
-                </a>
+                {profile?.linkedin && (
+                  <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-lg bg-surface border border-border hover:border-accent-primary group transition-colors duration-200">
+                    <div className="p-2 rounded-md bg-surface-elevated group-hover:bg-accent-primary/10 transition-colors">
+                      <LinkedinIcon size={18} className="text-accent-primary" />
+                    </div>
+                    <div>
+                      <p className="font-mono text-xs text-text-muted uppercase tracking-widest mb-0.5">LinkedIn</p>
+                      <p className="text-text-primary text-sm">{profile.linkedin.replace('https://', '')}</p>
+                    </div>
+                  </a>
+                )}
               </div>
             </div>
           </AnimatedSection>
