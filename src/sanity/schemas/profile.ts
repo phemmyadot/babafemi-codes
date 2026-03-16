@@ -41,7 +41,6 @@ export const profileSchema = defineType({
       options: { accept: '.pdf' },
     }),
     defineField({ name: 'openToWork', title: 'Open to Work', type: 'boolean', initialValue: true }),
-    defineField({ name: 'credlyUrl', title: 'Credly Profile URL', type: 'url', description: 'Link to your Credly badge/profile — used on certification badges' }),
     defineField({
       name: 'stats',
       title: 'Stats',
@@ -61,8 +60,16 @@ export const profileSchema = defineType({
       name: 'certifications',
       title: 'Certifications',
       type: 'array',
-      of: [{ type: 'string' }],
-      options: { layout: 'tags' },
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({ name: 'label', title: 'Label', type: 'string' }),
+            defineField({ name: 'url',   title: 'URL',   type: 'url', description: 'Link to Credly badge or credential page' }),
+          ],
+          preview: { select: { title: 'label', subtitle: 'url' } },
+        },
+      ],
     }),
   ],
 })

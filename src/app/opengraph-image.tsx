@@ -10,7 +10,7 @@ export default async function Image() {
 
   const name   = profile ? `${profile.firstName} ${profile.lastName}` : ''
   const title  = profile?.titles?.[0] ?? ''
-  const tags   = profile?.certifications?.slice(0, 4) ?? []
+  const tags   = profile?.certifications?.slice(0, 4).map((c) => c.label) ?? []
 
   return new ImageResponse(
     (
