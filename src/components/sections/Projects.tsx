@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { ExternalLink } from 'lucide-react'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
@@ -22,9 +23,11 @@ export function Projects({ projects }: ProjectsProps) {
     ).map(([value, label]) => ({ value: value as ProjectCategory, label })),
   ]
 
-  const filtered = filter === 'all'
-    ? projects
-    : projects.filter((p) => p.category === filter)
+  const sorted   = [...projects].sort((a, b) => a.order - b.order)
+  const filtered = filter === 'all' ? sorted : sorted.filter((p) => p.category === filter)
+
+  const featured = filtered.filter((p) => p.featured)
+  const regular  = filtered.filter((p) => !p.featured)
 
   return (
     <section id="projects" className="py-24 px-6 bg-surface/30">
@@ -56,7 +59,6 @@ export function Projects({ projects }: ProjectsProps) {
           </div>
         </AnimatedSection>
 
-        {/* Grid */}
         {filtered.length === 0 ? (
           <AnimatedSection>
             <div className="text-center py-20 text-text-muted font-mono text-sm">
@@ -64,62 +66,107 @@ export function Projects({ projects }: ProjectsProps) {
             </div>
           </AnimatedSection>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered
-              .sort((a, b) => a.order - b.order)
-              .map((project, i) => (
-                <AnimatedSection key={project.id} delay={i * 60}>
-                  <Card className={`h-full flex flex-col ${project.featured ? 'border-accent-primary/30' : ''}`}>
-                    {/* Featured indicator */}
-                    {project.featured && (
-                      <span className="inline-block mb-3 font-mono text-xs text-accent-primary tracking-widest uppercase">
-                        ★ Featured
-                      </span>
-                    )}
+          <div className="space-y-16">
+            {/* ── Featured projects ── */}
+            {featured.length > 0 && (
+              <div className="grid md:grid-cols-2 gap-6">
+                {featured.map((project, i) => (
+                  <AnimatedSection key={project.id} delay={i * 80}>
+                    <Card className="flex flex-col h-full border-accent-primary/30 overflow-hidden p-0">
+                      {/* Thumbnail */}
+                      <div className="relative w-full aspect-video bg-surface-elevated overflow-hidden">
+                        {project.thumbnail ? (
+                          <Image
+                            src={project.thumbnail}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-500 hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="font-mono text-xs text-text-muted tracking-widest uppercase">
+                              No preview
+                            </span>
+                          </div>
+                        )}
+                        <div className="absolute top-3 left-3">
+                          <span className="inline-block px-2.5 py-1 rounded-full bg-accent-primary/90 font-mono text-xs text-white tracking-widest uppercase">
+                            ★ Featured
+                          </span>
+                        </div>
+                      </div>
 
-                    <h3 className="font-display font-semibold text-lg text-text-primary mb-2">
-                      {project.title}
-                    </h3>
+                      {/* Body */}
+                      <div className="flex flex-col flex-1 p-6">
+                        <h3 className="font-display font-semibold text-xl text-text-primary mb-2">
+                          {project.title}
+                        </h3>
+                        <p className="text-text-secondary text-sm leading-relaxed flex-1 mb-4">
+                          {project.description}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mb-5">
+                          {project.tags.map((tag) => (
+                            <Badge key={tag} label={tag} variant="accent" />
+                          ))}
+                        </div>
+                        <div className="flex items-center gap-4 pt-4 border-t border-border">
+                          {project.repository && (
+                            <a href={project.repository} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 text-text-muted hover:text-text-primary transition-colors text-sm">
+                              <ExternalLink size={15} />Code
+                            </a>
+                          )}
+                          {project.liveUrl && (
+                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 text-text-muted hover:text-accent-secondary transition-colors text-sm">
+                              <ExternalLink size={15} />Live
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </Card>
+                  </AnimatedSection>
+                ))}
+              </div>
+            )}
 
-                    <p className="text-text-secondary text-sm leading-relaxed flex-1 mb-4">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {project.tags.map((tag) => (
-                        <Badge key={tag} label={tag} variant="accent" />
-                      ))}
-                    </div>
-
-                    {/* Links */}
-                    <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border">
-                      {project.repository && (
-                        <a
-                          href={project.repository}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 text-text-muted hover:text-text-primary transition-colors text-sm"
-                        >
-                          <ExternalLink size={15} />
-                          Code
-                        </a>
-                      )}
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 text-text-muted hover:text-accent-secondary transition-colors text-sm"
-                        >
-                          <ExternalLink size={15} />
-                          Live
-                        </a>
-                      )}
-                    </div>
-                  </Card>
-                </AnimatedSection>
-              ))}
+            {/* ── Regular projects ── */}
+            {regular.length > 0 && (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {regular.map((project, i) => (
+                  <AnimatedSection key={project.id} delay={i * 60}>
+                    <Card className="h-full flex flex-col">
+                      <h3 className="font-display font-semibold text-lg text-text-primary mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-text-secondary text-sm leading-relaxed flex-1 mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-5">
+                        {project.tags.map((tag) => (
+                          <Badge key={tag} label={tag} variant="accent" />
+                        ))}
+                      </div>
+                      <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border">
+                        {project.repository && (
+                          <a href={project.repository} target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-text-muted hover:text-text-primary transition-colors text-sm">
+                            <ExternalLink size={15} />Code
+                          </a>
+                        )}
+                        {project.liveUrl && (
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-text-muted hover:text-accent-secondary transition-colors text-sm">
+                            <ExternalLink size={15} />Live
+                          </a>
+                        )}
+                      </div>
+                    </Card>
+                  </AnimatedSection>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
