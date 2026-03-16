@@ -58,16 +58,16 @@
 - [x] Create `lib/sanity.ts` — lazy client via `getClient()`, `urlFor()` helper
 - [x] Create `lib/queries.ts` — GROQ queries for projects (all, featured, by category)
 - [x] Fetch projects at build time in `page.tsx` — dynamic import guards against missing env vars
-- [ ] Set up Netlify build hook → Sanity webhook (publish → auto-redeploy) — manual step
-- [ ] Add Sanity env vars to Netlify dashboard (`NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_API_TOKEN`) — manual step
-- [ ] Add initial project documents in Sanity Studio — manual step
+- [x] Set up Netlify build hook → Sanity webhook (publish → auto-redeploy)
+- [x] Add Sanity env vars to Netlify dashboard (`NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_API_TOKEN`)
+- [x] Add initial project documents in Sanity Studio
 
 ---
 
 ## Phase 6 — Polish & Performance
 
-- [ ] Add Open Graph and Twitter card meta tags (dynamic per page)
-- [ ] Add `robots.txt` and `sitemap.xml`
+- [x] Add Open Graph and Twitter card meta tags (dynamic per page)
+- [x] Add `robots.txt` and `sitemap.xml`
 - [ ] Optimize all images (next/image with blur placeholder)
 - [ ] Add resume PDF to `/public/assets/resume.pdf` for download
 - [ ] Audit Lighthouse score (target: 95+ across all categories)
