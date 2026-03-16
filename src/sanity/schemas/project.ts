@@ -47,12 +47,6 @@ export const projectSchema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name:        'categoryLabel',
-      title:       'Category Display Label',
-      type:        'string',
-      description: 'Override the filter pill label (e.g. "Full Stack" instead of "fullstack")',
-    }),
-    defineField({
       name:  'repository',
       title: 'GitHub Repository URL',
       type:  'url',

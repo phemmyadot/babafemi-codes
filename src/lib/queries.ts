@@ -77,7 +77,6 @@ const PROJECT_FIELDS = `
   tags,
   category,
   "categoryLabel": select(
-    defined(categoryLabel) && categoryLabel != "" => categoryLabel,
     category == "mobile"    => "Mobile",
     category == "web"       => "Web",
     category == "fullstack" => "Full Stack",
