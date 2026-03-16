@@ -6,8 +6,8 @@ import { Projects }   from '@/components/sections/Projects'
 import { Contact }    from '@/components/sections/Contact'
 import { getProjects } from '@/lib/projects'
 
-export default function Home() {
-  const projects = getProjects()
+export default async function Home() {
+  const projects = await getProjects()
 
   return (
     <>

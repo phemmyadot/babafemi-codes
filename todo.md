@@ -52,15 +52,15 @@
 
 ## Phase 5 — Sanity CMS
 
-- [ ] Create Sanity project (`npm create sanity@latest`)
-- [ ] Define `project` document schema (title, description, thumbnail, tags, category, repository, liveUrl, featured, order)
-- [ ] Embed Sanity Studio at `/studio` route in the Next.js app
-- [ ] Create `lib/sanity.ts` — client setup (`next-sanity`)
-- [ ] Create `lib/queries.ts` — GROQ queries for projects (all, featured, by category)
-- [ ] Fetch projects at build time in `page.tsx` (static generation via `generateStaticParams` / async server component)
-- [ ] Set up Netlify build hook → Sanity webhook (publish → auto-redeploy)
-- [ ] Add Sanity env vars to Netlify dashboard (`NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_API_TOKEN`)
-- [ ] Add initial project documents in Sanity Studio
+- [x] Create Sanity project (`npm create sanity@latest`) — scaffold complete, create project at sanity.io/manage
+- [x] Define `project` document schema (title, description, thumbnail, tags, category, repository, liveUrl, featured, order)
+- [x] Embed Sanity Studio at `/studio` route in the Next.js app
+- [x] Create `lib/sanity.ts` — lazy client via `getClient()`, `urlFor()` helper
+- [x] Create `lib/queries.ts` — GROQ queries for projects (all, featured, by category)
+- [x] Fetch projects at build time in `page.tsx` — dynamic import guards against missing env vars
+- [ ] Set up Netlify build hook → Sanity webhook (publish → auto-redeploy) — manual step
+- [ ] Add Sanity env vars to Netlify dashboard (`NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `SANITY_API_TOKEN`) — manual step
+- [ ] Add initial project documents in Sanity Studio — manual step
 
 ---
 
