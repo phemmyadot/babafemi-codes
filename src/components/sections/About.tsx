@@ -35,7 +35,7 @@ export function About({ profile }: AboutProps) {
               {(profile.certifications ?? []).map((cert) => (
                 <Badge key={cert} label={cert} variant="warning" />
               ))}
-              {profile.openToWork && <Badge label="Open to opportunities" variant="success" />}
+              {profile.openToWork && <Badge label="Open to opportunities" variant="success" pulse />}
             </div>
           </AnimatedSection>
 

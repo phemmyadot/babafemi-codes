@@ -77,7 +77,7 @@
 
 ## Recommended Features (Post-MVP)
 
-- [ ] **"Open to Work" badge** — green pulsing dot on hero/about with status message
+- [x] **"Open to Work" badge** — green pulsing dot on hero/about with status message
 - [ ] **Resume download button** — PDF download directly from hero CTA
 - [ ] **AWS certification badge** — clickable badge linking to Credly credential
 - [ ] **Project category filter** — tab/pill filter bar on Projects section (All | Mobile | Web | etc.)

@@ -2,6 +2,7 @@
 
 import { ArrowDown, Download } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Badge } from '@/components/ui/Badge'
 import { Typewriter } from '@/components/ui/Typewriter'
 import { Profile } from '@/lib/queries'
 
@@ -43,6 +44,12 @@ export function Hero({ profile }: HeroProps) {
       />
 
       <div className="max-w-content w-full mx-auto text-center">
+        {profile.openToWork && (
+          <div className="flex justify-center mb-6">
+            <Badge label="Open to opportunities" variant="success" pulse />
+          </div>
+        )}
+
         <p className="font-mono text-sm text-text-secondary mb-6 tracking-widest uppercase">
           Hi, I&apos;m
         </p>
