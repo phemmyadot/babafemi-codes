@@ -86,10 +86,11 @@
 - [ ] **Command palette** — Cmd+K / Ctrl+K quick navigation between sections
 - [ ] **Copy email to clipboard** — click email address in Contact → copies + shows confirmation toast
 - [x] **Blog section** — pull latest posts from Hashnode RSS feed (already on hashnode, linked in old footer)
-- [ ] **GitHub activity graph** — embed contribution graph or recent activity widget
+- [x] **GitHub activity graph** — embed contribution graph or recent activity widget
 - [ ] **Case study pages** — `/projects/[id]` deep-dive pages for featured projects
 - [ ] **Toast notifications** — success/error feedback on contact form submission
 - [ ] **Back-to-top button** — appears after scrolling past hero
 - [ ] **Keyboard navigation** — full `tab` + `enter` accessibility across all interactive elements
 
 ---
+Copy email to clipboard, Toast notifications and Back-to-top button
