@@ -1,13 +1,9 @@
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { Badge } from '@/components/ui/Badge'
+import { SkillGroup } from '@/lib/queries'
 
-interface SkillGroup {
-  label:  string
-  skills: string[]
-}
-
-const skillGroups: SkillGroup[] = [
+const fallbackGroups: SkillGroup[] = [
   {
     label: 'Mobile',
     skills: ['React Native', 'Expo', 'Flutter', 'Dart', 'iOS (Xcode)', 'Android Studio', 'Storybook', 'Flipper'],
@@ -30,7 +26,12 @@ const skillGroups: SkillGroup[] = [
   },
 ]
 
-export function Skills() {
+interface SkillsProps {
+  skillGroups?: SkillGroup[]
+}
+
+export function Skills({ skillGroups }: SkillsProps) {
+  const groups = skillGroups && skillGroups.length > 0 ? skillGroups : fallbackGroups
   return (
     <section id="skills" className="py-24 px-6">
       <div className="max-w-content mx-auto">
@@ -43,7 +44,7 @@ export function Skills() {
         </AnimatedSection>
 
         <div className="space-y-10">
-          {skillGroups.map((group, i) => (
+          {groups.map((group, i) => (
             <AnimatedSection key={group.label} delay={i * 80}>
               <div>
                 <h3 className="font-mono text-xs text-text-muted uppercase tracking-widest mb-4">

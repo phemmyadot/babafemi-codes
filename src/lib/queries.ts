@@ -1,6 +1,20 @@
 import { getClient } from './sanity'
 import { Project } from '@/core/models/project'
 
+export interface SkillGroup {
+  label: string
+  skills: string[]
+}
+
+export async function getSkills(): Promise<SkillGroup[]> {
+  const doc = await getClient().fetch(
+    `*[_type == "skills"][0]{ groups }`,
+    {},
+    { next: { revalidate: 60 } }
+  )
+  return doc?.groups ?? []
+}
+
 const PROJECT_FIELDS = `
   "id": _id,
   title,

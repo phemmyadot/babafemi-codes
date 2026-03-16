@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { projectSchema } from './src/sanity/schemas/project'
+import { skillsSchema } from './src/sanity/schemas/skills'
 
 export default defineConfig({
   name:    'babafemi-codes',
@@ -13,6 +14,6 @@ export default defineConfig({
     visionTool(),
   ],
   schema: {
-    types: [projectSchema],
+    types: [projectSchema, skillsSchema],
   },
 })
