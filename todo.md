@@ -84,13 +84,11 @@
 - [x] **Featured project highlight** — first 1-2 projects get larger card with screenshot
 - [x] **Scroll progress indicator** — thin gradient bar at top of viewport
 - [ ] **Command palette** — Cmd+K / Ctrl+K quick navigation between sections
-- [ ] **Copy email to clipboard** — click email address in Contact → copies + shows confirmation toast
 - [x] **Blog section** — pull latest posts from Hashnode RSS feed (already on hashnode, linked in old footer)
 - [x] **GitHub activity graph** — embed contribution graph or recent activity widget
 - [ ] **Case study pages** — `/projects/[id]` deep-dive pages for featured projects
-- [ ] **Toast notifications** — success/error feedback on contact form submission
-- [ ] **Back-to-top button** — appears after scrolling past hero
+- [x] **Toast notifications** — success/error feedback on contact form submission
+- [x] **Back-to-top button** — appears after scrolling past hero
 - [ ] **Keyboard navigation** — full `tab` + `enter` accessibility across all interactive elements
 
 ---
-Copy email to clipboard, Toast notifications and Back-to-top button

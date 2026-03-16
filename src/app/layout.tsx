@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
 import { NavBar } from '@/components/layout/NavBar'
 import { Footer } from '@/components/layout/Footer'
+import { Toaster } from '@/components/ui/Toaster'
+import { BackToTop } from '@/components/ui/BackToTop'
 import { getProfile } from '@/lib/queries'
 import './globals.css'
 
@@ -76,6 +78,8 @@ export default async function RootLayout({
         <NavBar />
         <main>{children}</main>
         <Footer profile={profile} />
+        <Toaster />
+        <BackToTop />
       </body>
     </html>
   )

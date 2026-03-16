@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Send, Linkedin as LinkedinIcon, Mail } from 'lucide-react'
+import { toast } from '@/lib/toast'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { Button } from '@/components/ui/Button'
@@ -30,10 +31,17 @@ export function Contact({ profile }: ContactProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
-      setStatus(res.ok ? 'success' : 'error')
-      if (res.ok) setForm({ name: '', email: '', message: '' })
+      if (res.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', message: '' })
+        toast("Message sent — I'll get back to you soon.", 'success')
+      } else {
+        setStatus('error')
+        toast('Something went wrong. Try emailing me directly.', 'error')
+      }
     } catch {
       setStatus('error')
+      toast('Something went wrong. Try emailing me directly.', 'error')
     }
   }
 
@@ -76,12 +84,6 @@ export function Contact({ profile }: ContactProps) {
                 <Send size={16} />
               </Button>
 
-              {status === 'success' && (
-                <p className="text-success text-sm font-mono text-center">✓ Message sent — I&apos;ll get back to you soon.</p>
-              )}
-              {status === 'error' && (
-                <p className="text-danger text-sm font-mono text-center">Something went wrong. Try emailing me directly.</p>
-              )}
             </form>
           </AnimatedSection>
 
