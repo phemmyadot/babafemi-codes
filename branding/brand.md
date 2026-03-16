@@ -1,8 +1,7 @@
-# Babafemi Adojutelegan — Brand Identity
+# Brand Identity
 
 ## Brand Overview
 
-**Name:** Babafemi Adojutelegan
 **Handle:** babafemi.codes
 **Title:** Senior Software Engineer — Mobile & Full Stack
 **Tagline:** *Engineering Experiences. Shipping Solutions.*
@@ -122,7 +121,6 @@ The portfolio should feel like a product — not a hobby project. Think Vercel, 
 ### Bio Example
 > I'm a Senior Software Engineer specializing in mobile and full stack development.
 > I build production-grade applications — from AI-powered chat interfaces to BLE-integrated medical devices.
-> Currently shipping at Telus Digital.
 
 ---
 

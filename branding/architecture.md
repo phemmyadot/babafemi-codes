@@ -140,7 +140,7 @@ src/
 ### 6. Contact
 - Headline: "Let's work together."
 - Form: Name, Email, Message, [Send Message]
-- On submit: POST to /api/contact → Resend → babafemiadojutelegan@gmail.com
+- On submit: POST to /api/contact → Resend → your@email.com
 - Also shows: email link, LinkedIn link
 
 ---
@@ -152,7 +152,7 @@ Set in **Netlify dashboard → Site settings → Environment variables**.
 ```env
 # Email (Resend)
 RESEND_API_KEY=re_...
-CONTACT_TO_EMAIL=babafemiadojutelegan@gmail.com
+CONTACT_TO_EMAIL=your@email.com
 
 # Sanity CMS
 NEXT_PUBLIC_SANITY_PROJECT_ID=abc123
