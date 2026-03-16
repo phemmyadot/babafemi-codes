@@ -1,5 +1,3 @@
-'use client'
-
 interface BadgeProps {
   label: string
   variant?: 'default' | 'accent' | 'success' | 'warning'
