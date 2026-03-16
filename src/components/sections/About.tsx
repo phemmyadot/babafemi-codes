@@ -32,9 +32,22 @@ export function About({ profile }: AboutProps) {
             </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              {(profile.certifications ?? []).map((cert) => (
-                <Badge key={cert} label={cert} variant="warning" />
-              ))}
+              {(profile.certifications ?? []).map((cert) =>
+                profile.credlyUrl ? (
+                  <a
+                    key={cert}
+                    href={profile.credlyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-opacity hover:opacity-80"
+                    title="View on Credly"
+                  >
+                    <Badge label={cert} variant="warning" />
+                  </a>
+                ) : (
+                  <Badge key={cert} label={cert} variant="warning" />
+                )
+              )}
               {profile.openToWork && <Badge label="Open to opportunities" variant="success" pulse />}
             </div>
           </AnimatedSection>

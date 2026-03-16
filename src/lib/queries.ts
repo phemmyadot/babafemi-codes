@@ -14,6 +14,7 @@ export interface Profile {
   avatar: string | null
   resumeUrl: string
   openToWork: boolean
+  credlyUrl: string | null
   stats: { value: string; label: string }[]
   certifications: string[]
 }
@@ -25,7 +26,7 @@ export async function getProfile(): Promise<Profile | null> {
       email, linkedin, github, hashnode,
       "avatar": avatar.asset->url,
       "resumeUrl": resume.asset->url,
-      openToWork, stats, certifications
+      openToWork, credlyUrl, stats, certifications
     }`,
     {},
     { next: { revalidate: 60 } }
