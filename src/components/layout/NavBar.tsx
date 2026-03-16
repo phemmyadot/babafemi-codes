@@ -12,11 +12,17 @@ const navLinks = [
 ]
 
 export function NavBar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled,  setScrolled]  = useState(false)
+  const [progress,  setProgress]  = useState(0)
+  const [menuOpen,  setMenuOpen]  = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => {
+      const scrollY  = window.scrollY
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+      setScrolled(scrollY > 20)
+      setProgress(maxScroll > 0 ? (scrollY / maxScroll) * 100 : 0)
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -32,6 +38,13 @@ export function NavBar() {
           : 'bg-transparent'}
       `}
     >
+      {/* Scroll progress bar */}
+      <div
+        className="absolute top-0 left-0 h-[2px] transition-all duration-75"
+        style={{ width: `${progress}%`, background: 'linear-gradient(90deg, #6366F1, #22D3EE)' }}
+        aria-hidden
+      />
+
       <nav className="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a

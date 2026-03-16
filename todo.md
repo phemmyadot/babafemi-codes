@@ -82,7 +82,7 @@
 - [x] **AWS certification badge** — clickable badge linking to Credly credential
 - [x] **Project category filter** — tab/pill filter bar on Projects section (All | Mobile | Web | etc.)
 - [x] **Featured project highlight** — first 1-2 projects get larger card with screenshot
-- [ ] **Scroll progress indicator** — thin gradient bar at top of viewport
+- [x] **Scroll progress indicator** — thin gradient bar at top of viewport
 - [ ] **Command palette** — Cmd+K / Ctrl+K quick navigation between sections
 - [ ] **Copy email to clipboard** — click email address in Contact → copies + shows confirmation toast
 - [ ] **Blog section** — pull latest posts from Hashnode RSS feed (already on hashnode, linked in old footer)
