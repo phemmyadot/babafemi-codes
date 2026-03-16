@@ -7,12 +7,12 @@ export interface SkillGroup {
 }
 
 export async function getSkills(): Promise<SkillGroup[]> {
-  const doc = await getClient().fetch(
-    `*[_type == "skills"][0]{ groups }`,
+  const docs = await getClient().fetch(
+    `*[_type == "skills"] | order(order asc) { "label": title, skills }`,
     {},
     { next: { revalidate: 60 } }
   )
-  return doc?.groups ?? []
+  return docs ?? []
 }
 
 const PROJECT_FIELDS = `

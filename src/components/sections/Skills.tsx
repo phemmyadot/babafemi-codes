@@ -51,7 +51,7 @@ export function Skills({ skillGroups }: SkillsProps) {
                   {group.label}
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
+                  {(group.skills ?? []).map((skill) => (
                     <Badge key={skill} label={skill} variant="default" />
                   ))}
                 </div>
