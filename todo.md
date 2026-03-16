@@ -35,18 +35,18 @@
 
 ## Phase 3 — Core Sections
 
-- [ ] **Hero** — name (gradient), typewriter titles, tagline, [View Work] + [Download Resume] CTAs, subtle radial glow background
-- [ ] **About** — bio paragraph, years of experience stat, AWS cert badge, open-to-work status badge
-- [ ] **Experience** — vertical timeline (Telus Digital, Rhaeos, Eminent Technology), date ranges, bullet points
-- [ ] **Skills** — grouped chips: Mobile | Web | Cloud & Backend | Security & Auth | Testing & DevOps
-- [ ] **Projects** — filterable grid from `PROJECTS_JSON` env var (All | Mobile | Web | Full Stack | Backend)
-- [ ] **Contact** — form (Name, Email, Message) with POST to `/api/contact` → Resend → email delivery
+- [x] **Hero** — name (gradient), typewriter titles, tagline, [View Work] + [Download Resume] CTAs, subtle radial glow background
+- [x] **About** — bio paragraph, years of experience stat, AWS cert badge, open-to-work status badge
+- [x] **Experience** — vertical timeline (Telus Digital, Rhaeos, Eminent Technology), date ranges, bullet points
+- [x] **Skills** — grouped chips: Mobile | Web | Cloud & Backend | Security & Auth | Testing & DevOps
+- [x] **Projects** — filterable grid from `PROJECTS_JSON` env var (All | Mobile | Web | Full Stack | Backend)
+- [x] **Contact** — form (Name, Email, Message) with POST to `/api/contact` → Resend → email delivery
 
 ---
 
 ## Phase 4 — API Routes
 
-- [ ] `POST /api/contact` — validate form fields, send email via Resend to `babafemiadojutelegan@gmail.com`
+- [x] `POST /api/contact` — validate form fields, send email via Resend to `babafemiadojutelegan@gmail.com`
 
 ---
 
