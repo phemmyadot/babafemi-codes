@@ -45,7 +45,7 @@ export function Contact({ profile }: ContactProps) {
       <div className="max-w-content mx-auto">
         <AnimatedSection>
           <SectionHeader
-            label="06 / Contact"
+            label="05 / Contact"
             title="Let's work"
             titleAccent="together"
             description="Have a project in mind or want to explore opportunities? I'd love to hear from you."

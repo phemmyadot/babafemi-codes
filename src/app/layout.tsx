@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://babafemi.codes'),
   title: 'Babafemi Adojutelegan — Senior Software Engineer',
   description:
-    'Senior Software Engineer specializing in mobile and full stack development. Building production-grade applications at Telus Digital.',
+    'Senior Software Engineer specializing in mobile and full stack development.',
   keywords: [
     'Senior Software Engineer',
     'Mobile Developer',

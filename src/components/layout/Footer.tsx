@@ -6,16 +6,15 @@ interface FooterProps {
 }
 
 export function Footer({ profile }: FooterProps) {
-  const year      = new Date().getFullYear()
-  const firstName = profile?.firstName ?? 'Babafemi'
-  const lastName  = profile?.lastName  ?? 'Adojutelegan'
-  const name      = `${firstName} ${lastName}`
+  const year = new Date().getFullYear()
+  const name = profile ? `${profile.firstName} ${profile.lastName}` : ''
 
-  const socialLinks = [
-    { label: 'GitHub',    href: profile?.github   ?? 'https://github.com/babafemiogungbade',    icon: Github },
-    { label: 'LinkedIn',  href: profile?.linkedin  ?? 'https://linkedin.com/in/badojutelegan',   icon: LinkedinIcon },
-    { label: 'Hashnode',  href: profile?.hashnode  ?? 'https://hashnode.com/@babafemi',          icon: ExternalLink },
-  ].filter(({ href }) => href)
+  const allLinks = [
+    { label: 'GitHub',   href: profile?.github,   icon: Github },
+    { label: 'LinkedIn', href: profile?.linkedin,  icon: LinkedinIcon },
+    { label: 'Hashnode', href: profile?.hashnode,  icon: ExternalLink },
+  ]
+  const socialLinks = allLinks.filter((l): l is typeof l & { href: string } => Boolean(l.href))
 
   return (
     <footer className="border-t border-border bg-surface">
