@@ -1,19 +1,13 @@
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
+import { ExperienceItem } from '@/lib/queries'
 
-interface ExperienceItem {
-  company:   string
-  role:      string
-  period:    string
-  current?:  boolean
-  bullets:   string[]
-}
-
-const experience: ExperienceItem[] = [
+const fallbackExperience: ExperienceItem[] = [
   {
     company: 'Telus Digital',
-    role:    'Senior Software Engineer',
-    period:  'Oct 2024 — Present',
+    role: 'Senior Software Engineer',
+    startDate: '2024-10-01',
+    endDate: null,
     current: true,
     bullets: [
       'Designed and maintained modular, high-performance frontend systems within a shared monorepo, accelerating feature delivery across multiple production applications.',
@@ -25,8 +19,10 @@ const experience: ExperienceItem[] = [
   },
   {
     company: 'Rhaeos',
-    role:    'Mobile Application Developer',
-    period:  'Jul 2023 — Jun 2024',
+    role: 'Mobile Application Developer',
+    startDate: '2023-07-01',
+    endDate: '2024-06-01',
+    current: false,
     bullets: [
       'Implemented End-to-End Encryption between mobile apps and BLE hardware to ensure data integrity and user privacy.',
       'Integrated BLE hardware for high-reliability real-time data collection and historical data visualization.',
@@ -36,8 +32,10 @@ const experience: ExperienceItem[] = [
   },
   {
     company: 'Eminent Technology',
-    role:    'Full Stack Developer',
-    period:  'Jan 2019 — Jul 2023',
+    role: 'Full Stack Developer',
+    startDate: '2019-01-01',
+    endDate: '2023-07-01',
+    current: false,
     bullets: [
       'Developed scalable microservice architectures to streamline complex order workflows and high-transaction operations.',
       'Built mobile applications with background synchronization and real-time notifications for low-connectivity environments.',
@@ -46,7 +44,18 @@ const experience: ExperienceItem[] = [
   },
 ]
 
-export function Experience() {
+function formatPeriod(startDate: string, endDate: string | null, current: boolean): string {
+  const fmt = (d: string) =>
+    new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
+  return `${fmt(startDate)} — ${current || !endDate ? 'Present' : fmt(endDate)}`
+}
+
+interface ExperienceProps {
+  experience?: ExperienceItem[]
+}
+
+export function Experience({ experience }: ExperienceProps) {
+  const items = experience && experience.length > 0 ? experience : fallbackExperience
   return (
     <section id="experience" className="py-24 px-6 bg-surface/30">
       <div className="max-w-content mx-auto">
@@ -64,7 +73,7 @@ export function Experience() {
           <div className="absolute left-0 md:left-6 top-0 bottom-0 w-px bg-border" aria-hidden />
 
           <div className="space-y-12">
-            {experience.map((item, i) => (
+            {items.map((item, i) => (
               <AnimatedSection key={item.company} delay={i * 100}>
                 <div className="relative pl-8 md:pl-20">
                   {/* Timeline dot */}
@@ -89,7 +98,7 @@ export function Experience() {
                         </p>
                       </div>
                       <span className="font-mono text-xs text-text-muted whitespace-nowrap">
-                        {item.period}
+                        {formatPeriod(item.startDate, item.endDate, item.current)}
                       </span>
                     </div>
 

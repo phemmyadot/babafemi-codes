@@ -1,6 +1,30 @@
 import { getClient } from './sanity'
 import { Project } from '@/core/models/project'
 
+export interface ExperienceItem {
+  company: string
+  role: string
+  startDate: string
+  endDate: string | null
+  current: boolean
+  bullets: string[]
+}
+
+export async function getExperience(): Promise<ExperienceItem[]> {
+  return getClient().fetch(
+    `*[_type == "experience"] | order(order asc) {
+      company,
+      role,
+      startDate,
+      endDate,
+      current,
+      bullets
+    }`,
+    {},
+    { next: { revalidate: 60 } }
+  )
+}
+
 export interface SkillGroup {
   label: string
   skills: string[]
