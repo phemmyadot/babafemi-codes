@@ -2,48 +2,6 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { AnimatedSection } from '@/components/ui/AnimatedSection'
 import { ExperienceItem } from '@/lib/queries'
 
-const fallbackExperience: ExperienceItem[] = [
-  {
-    company: 'Telus Digital',
-    role: 'Senior Software Engineer',
-    startDate: '2024-10-01',
-    endDate: null,
-    current: true,
-    bullets: [
-      'Designed and maintained modular, high-performance frontend systems within a shared monorepo, accelerating feature delivery across multiple production applications.',
-      'Built an AI-powered chat interface with a custom animated Markdown renderer and high-fidelity PDF/DOCX source viewer, optimizing real-time streaming performance.',
-      'Collaborated with cross-functional AI and Product teams to architect and integrate complex APIs into a production mobile application.',
-      'Managed high-integrity release cycles via Azure CI/CD to TestFlight, monitoring stability with App Insights and Crashlytics — 100% deployment consistency.',
-      'Engineered OAuth + MFA + Biometric (FaceID/TouchID) authentication suite for high-security access control.',
-    ],
-  },
-  {
-    company: 'Rhaeos',
-    role: 'Mobile Application Developer',
-    startDate: '2023-07-01',
-    endDate: '2024-06-01',
-    current: false,
-    bullets: [
-      'Implemented End-to-End Encryption between mobile apps and BLE hardware to ensure data integrity and user privacy.',
-      'Integrated BLE hardware for high-reliability real-time data collection and historical data visualization.',
-      'Built serverless data-processing pipelines with AWS Lambda and API Gateway for high-volume analytics streams.',
-      'Developed E2E testing strategies with Detox and Jest for mission-critical medical software.',
-    ],
-  },
-  {
-    company: 'Eminent Technology',
-    role: 'Full Stack Developer',
-    startDate: '2019-01-01',
-    endDate: '2023-07-01',
-    current: false,
-    bullets: [
-      'Developed scalable microservice architectures to streamline complex order workflows and high-transaction operations.',
-      'Built mobile applications with background synchronization and real-time notifications for low-connectivity environments.',
-      'Architected cloud migration strategies and automated CI/CD pipelines in Azure, improving uptime and deployment reliability.',
-    ],
-  },
-]
-
 function formatPeriod(startDate: string, endDate: string | null, current: boolean): string {
   const fmt = (d: string) =>
     new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })
@@ -51,11 +9,10 @@ function formatPeriod(startDate: string, endDate: string | null, current: boolea
 }
 
 interface ExperienceProps {
-  experience?: ExperienceItem[]
+  experience: ExperienceItem[]
 }
 
 export function Experience({ experience }: ExperienceProps) {
-  const items = experience && experience.length > 0 ? experience : fallbackExperience
   return (
     <section id="experience" className="py-24 px-6 bg-surface/30">
       <div className="max-w-content mx-auto">
@@ -73,7 +30,7 @@ export function Experience({ experience }: ExperienceProps) {
           <div className="absolute left-0 md:left-6 top-0 bottom-0 w-px bg-border" aria-hidden />
 
           <div className="space-y-12">
-            {items.map((item, i) => (
+            {experience.map((item, i) => (
               <AnimatedSection key={item.company} delay={i * 100}>
                 <div className="relative pl-8 md:pl-20">
                   {/* Timeline dot */}
@@ -103,7 +60,7 @@ export function Experience({ experience }: ExperienceProps) {
                     </div>
 
                     <ul className="space-y-2">
-                      {item.bullets.map((bullet, j) => (
+                      {(item.bullets ?? []).map((bullet, j) => (
                         <li key={j} className="flex gap-3 text-text-secondary text-sm leading-relaxed">
                           <span className="text-accent-primary mt-1.5 shrink-0 text-xs">▹</span>
                           {bullet}
