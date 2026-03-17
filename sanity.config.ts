@@ -10,6 +10,7 @@ export default defineConfig({
   name:    'babafemi-codes',
   title:   'babafemi.codes',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  basePath: '/studio',
   dataset:   process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
   plugins: [
     structureTool(),
