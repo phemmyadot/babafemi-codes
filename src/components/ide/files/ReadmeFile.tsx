@@ -14,6 +14,8 @@ export function ReadmeFile({ profile, isActive }: ReadmeFileProps) {
   return (
     <div className={`file-section ${isActive ? 'active' : ''}`} id="file-readme">
       <div className="code-block">
+
+        {/* ── Header ── */}
         <div className="code-line"><span className="cm"># {fullName}</span></div>
         <div className="code-line blank"/>
         <div className="code-line">
@@ -22,12 +24,54 @@ export function ReadmeFile({ profile, isActive }: ReadmeFileProps) {
         </div>
         <div className="code-line blank"/>
         <div className="code-line"><span className="cm">---</span></div>
+
+        {/* ── Bio ── */}
         <div className="code-line blank"/>
-        <div className="code-line"><span className="cm">### 👋 Welcome to my codebase</span></div>
+        <div className="code-line"><span className="cm">### 👋 About me</span></div>
         <div className="code-line blank"/>
         {(profile?.bio ?? ['I build things that matter.']).map((line, i) => (
           <div key={i} className="code-line"><span className="cm">{line}</span></div>
         ))}
+
+        {/* ── Specialization ── */}
+        <div className="code-line blank"/>
+        <div className="code-line"><span className="cm">---</span></div>
+        <div className="code-line blank"/>
+        <div className="code-line"><span className="cm">### 🔧 Specialization</span></div>
+        <div className="code-line blank"/>
+        <div className="code-line"><span className="pl">- React Native · TypeScript · Cloud Infrastructure</span></div>
+        <div className="code-line"><span className="pl">- Bias toward shipping clean, maintainable software at scale</span></div>
+        <div className="code-line"><span className="pl">- Full ownership of mobile release cycles</span></div>
+        {profile?.certifications?.map((cert, i) => (
+          <div key={i} className="code-line"><span className="pl">- {cert.label}</span></div>
+        ))}
+
+        {/* ── Availability ── */}
+        <div className="code-line blank"/>
+        <div className="code-line"><span className="cm">---</span></div>
+        <div className="code-line blank"/>
+        <div className="code-line"><span className="cm">### 📅 Availability</span></div>
+        <div className="code-line blank"/>
+        <div className="code-line">
+          <span className="kw">const </span><span className="lk">availability</span>
+          <span className="op"> = </span><span className="ty">{'{'}</span>
+        </div>
+        <div className="code-line indent-1">
+          <span className="lk">status</span><span className="op">: </span>
+          <span className="st">&quot;Open to opportunities&quot;</span><span className="op">,</span>
+        </div>
+        <div className="code-line indent-1"><span className="lk">roles</span><span className="op">: [</span></div>
+        <div className="code-line indent-2"><span className="st">&quot;Senior Engineer&quot;</span><span className="op">,</span></div>
+        <div className="code-line indent-2"><span className="st">&quot;Contract Work&quot;</span><span className="op">,</span></div>
+        <div className="code-line indent-2"><span className="st">&quot;Interesting Side Projects&quot;</span></div>
+        <div className="code-line indent-1"><span className="op">],</span></div>
+        <div className="code-line indent-1">
+          <span className="lk">preferredStack</span><span className="op">: </span>
+          <span className="st">&quot;React Native · TypeScript · AWS&quot;</span>
+        </div>
+        <div className="code-line"><span className="ty">{'}'}</span></div>
+
+        {/* ── Navigate ── */}
         <div className="code-line blank"/>
         <div className="code-line"><span className="cm">---</span></div>
         <div className="code-line blank"/>
@@ -36,16 +80,18 @@ export function ReadmeFile({ profile, isActive }: ReadmeFileProps) {
         <div className="code-line"><span className="cm">| File | Contents |</span></div>
         <div className="code-line"><span className="cm">|------|----------|</span></div>
         {[
-          ['about.md',        'Who I am & background'],
           ['experience.json', 'Work history & roles'],
           ['skills.ts',       'Tech stack & tooling'],
           ['projects.tsx',    "Things I've shipped"],
-          ['contact.ts',      'Get in touch'],
+          ['blog.yml',        'Writing & thoughts'],
+          ['contact.py',      'Get in touch'],
         ].map(([file, desc]) => (
           <div key={file} className="code-line">
             <span className="cm">| [{file}](#) | {desc} |</span>
           </div>
         ))}
+
+        {/* ── Certifications ── */}
         {profile?.certifications?.length ? (
           <>
             <div className="code-line blank"/>
@@ -64,6 +110,8 @@ export function ReadmeFile({ profile, isActive }: ReadmeFileProps) {
             ))}
           </>
         ) : null}
+
+        {/* ── Stats ── */}
         {profile?.stats?.length ? (
           <>
             <div className="code-line blank"/>
@@ -80,6 +128,8 @@ export function ReadmeFile({ profile, isActive }: ReadmeFileProps) {
             ))}
           </>
         ) : null}
+
+        {/* ── Footer ── */}
         <div className="code-line blank"/>
         <div className="code-line"><span className="cm">---</span></div>
         <div className="code-line blank"/>
@@ -90,6 +140,7 @@ export function ReadmeFile({ profile, isActive }: ReadmeFileProps) {
         <div className="code-line">
           <span className="pl">{email}</span><span className="cursor"/>
         </div>
+
       </div>
     </div>
   )

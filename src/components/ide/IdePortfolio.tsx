@@ -20,7 +20,6 @@ import { LineNumbers } from './atoms/LineNumbers'
 import { Minimap }     from './atoms/Minimap'
 
 import { ReadmeFile }     from './files/ReadmeFile'
-import { AboutFile }      from './files/AboutFile'
 import { ExperienceFile } from './files/ExperienceFile'
 import { SkillsFile }     from './files/SkillsFile'
 import { ProjectsFile }   from './files/ProjectsFile'
@@ -134,7 +133,6 @@ export function IdePortfolio({ profile, experience, skillGroups, projects, blogP
 
           <div className="code-panel" ref={codePanelRef}>
             <ReadmeFile     profile={profile}         isActive={activeFile === 'readme'}/>
-            <AboutFile      profile={profile}         isActive={activeFile === 'about'}/>
             <ExperienceFile experience={experience}   isActive={activeFile === 'experience'}/>
             <SkillsFile     skillGroups={skillGroups} isActive={activeFile === 'skills'}/>
             <ProjectsFile   projects={projects}       isActive={activeFile === 'projects'}/>

@@ -54,10 +54,6 @@ export function Sidebar({
                 <span className="file-name">resume.pdf</span>
               </div>
             )}
-            <div className="sidebar-item">
-              <span className="file-icon">🖼</span>
-              <span className="file-name">avatar.png</span>
-            </div>
           </>
         )}
       </div>

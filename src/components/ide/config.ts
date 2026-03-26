@@ -3,12 +3,11 @@ import type { ExperienceItem } from '@/lib/queries'
 // ── File registry ────────────────────────────────────────────────
 export const FILE_CONFIG = {
   readme:     { name: 'README.md',       icon: '📄', lang: 'Markdown' },
-  about:      { name: 'about.md',        icon: '👤', lang: 'Markdown' },
   experience: { name: 'experience.json', icon: '📋', lang: 'JSON' },
   skills:     { name: 'skills.ts',       icon: '⚡', lang: 'TypeScript' },
   projects:   { name: 'projects.tsx',    icon: '🚀', lang: 'TypeScript React' },
-  blog:       { name: 'blog.md',         icon: '✍️', lang: 'Markdown' },
-  contact:    { name: 'contact.ts',      icon: '📬', lang: 'TypeScript' },
+  blog:       { name: 'blog.yml',        icon: '✍️', lang: 'YAML' },
+  contact:    { name: 'contact.py',      icon: '📬', lang: 'Python' },
 } as const
 
 export type FileId = keyof typeof FILE_CONFIG
@@ -16,7 +15,7 @@ export type FileId = keyof typeof FILE_CONFIG
 export const FILE_IDS = Object.keys(FILE_CONFIG) as FileId[]
 
 export const MOBILE_NAV_IDS: FileId[] = [
-  'readme', 'about', 'experience', 'skills', 'projects', 'contact',
+  'readme', 'experience', 'skills', 'projects', 'blog', 'contact',
 ]
 
 // ── Date helpers ─────────────────────────────────────────────────
