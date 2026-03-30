@@ -85,7 +85,7 @@ const PROJECT_FIELDS = `
     category
   ),
   repository,
-  liveUrl,
+  liveUrls[]{ title, link },
   featured,
   extras,
   order

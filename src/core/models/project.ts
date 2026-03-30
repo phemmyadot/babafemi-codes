@@ -8,7 +8,7 @@ export interface Project {
   category: ProjectCategory
   categoryLabel: string
   repository?: string
-  liveUrl?: string
+  liveUrls?: { title: string; link: string }[]
   featured: boolean
   order: number
   thumbnail?: string

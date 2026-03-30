@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export const projectSchema = defineType({
   name:  'project',
@@ -67,9 +67,21 @@ export const projectSchema = defineType({
       type:  'url',
     }),
     defineField({
-      name:  'liveUrl',
-      title: 'Live URL',
-      type:  'url',
+      name:  'liveUrls',
+      title: 'Live URLs',
+      type:  'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({ name: 'title', title: 'Title', type: 'string' }),
+            defineField({ name: 'link',  title: 'Link',  type: 'url'    }),
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'link' },
+          },
+        }),
+      ],
     }),
     defineField({
       name:    'featured',

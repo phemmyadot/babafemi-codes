@@ -26,11 +26,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             ⎇ GitHub
           </a>
         )}
-        {project.liveUrl && (
-          <a className="project-link" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-            ↗ Live
+        {project.liveUrls?.map((item) => (
+          <a key={item.link} className="project-link" href={item.link} target="_blank" rel="noopener noreferrer">
+            ↗ {item.title}
           </a>
-        )}
+        ))}
       </div>
     </div>
   )
