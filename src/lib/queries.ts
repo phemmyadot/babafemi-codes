@@ -87,6 +87,7 @@ const PROJECT_FIELDS = `
   repository,
   liveUrl,
   featured,
+  extras,
   order
 `
 

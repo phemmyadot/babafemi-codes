@@ -12,4 +12,5 @@ export interface Project {
   featured: boolean
   order: number
   thumbnail?: string
+  extras: string[];
 }

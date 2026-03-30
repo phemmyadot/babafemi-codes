@@ -47,6 +47,21 @@ export const projectSchema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name:    'extras',
+      title:   'Extras',
+      type:    'array',
+      of:    [{ type: 'string' }],
+      hidden: ({parent}) => parent.category !== "fullstack",
+      options: {
+        list: [  
+          { title: 'Mobile',     value: 'mobile' },
+          { title: 'Web',        value: 'web' },
+          { title: 'API',    value: 'api' },
+          { title: 'CMS',    value: 'CMS' },
+        ],
+      },
+    }),
+    defineField({
       name:  'repository',
       title: 'GitHub Repository URL',
       type:  'url',

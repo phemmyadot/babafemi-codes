@@ -8,6 +8,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="project-card">
       <div className="project-title">{project.title}</div>
+      <div className="project-extras">
+        <span className="project-extra">{project.categoryLabel}</span>
+        {project.extras?.map((extra, i) => (
+          <span key={i} className="project-extra">{extra}</span>
+        ))}
+      </div>
       <div className="project-desc">{project.description}</div>
       <div className="project-tags">
         {project.tags?.map((tag, i) => (
