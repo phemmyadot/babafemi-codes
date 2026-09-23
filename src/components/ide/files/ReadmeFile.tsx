@@ -169,8 +169,8 @@ export function ReadmeFile({ profile, isActive }: ReadmeFileProps) {
             <div className="code-line blank" />
             {profile.certifications.map((cert, i) => (
               <div key={i} className="code-line">
+                <span className="pl">- </span>
                 <span className="cm">
-                  -{" "}
                   {cert.url ? (
                     <a
                       href={cert.url}
